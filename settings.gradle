@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url = "https://papermc.io/repo/repository/maven-public/"
+        }
+    }
+}
+
+rootProject.name = 'parrotsystem'
+include 'parrot-api'
+include 'parrot-daemon'
+include 'parrot-lib'
+include 'parrot-service'
+
