@@ -1,8 +1,10 @@
 package net.mrmanhd.parrot.lib.api
 
+import com.hazelcast.core.HazelcastInstance
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.group.IGroupHandler
 import net.mrmanhd.parrot.api.service.IServiceHandler
+import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.GroupHandler
 import net.mrmanhd.parrot.lib.api.service.ServiceHandler
 
@@ -23,6 +25,11 @@ class ParrotLib : ParrotApi() {
     override fun getServiceHandler(): IServiceHandler = this.serviceHandler
 
     override fun getGroupHandler(): IGroupHandler = this.groupHandler
+
+    override fun getHazelcast(): HazelcastInstance {
+        return Parrot.instance.hazelcastServerHandler.getHazelcastInstance()
+            ?: Parrot.instance.hazelcastClientHandler.getHazelcastInstance()!!
+    }
 
     companion object {
         lateinit var instance: ParrotLib
