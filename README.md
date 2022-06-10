@@ -58,5 +58,5 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 <br>
 
 <p align="center">
-Solltest du Hilfe oder Fragen haben, kannst du mich gerne auf Discord anschreiben! <h4 align="center">MrManHD | ƝƖƙƚƛƧ#5363</h3>
+Solltest du Probleme oder Fragen haben, kannst du mich gerne auf Discord anschreiben! <h4 align="center">MrManHD | ƝƖƙƚƛƧ#5363</h3>
 </p>
