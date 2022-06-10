@@ -6,4 +6,14 @@ package net.mrmanhd.parrot.lib
  */
 
 class Parrot {
+
+    init {
+        instance = this
+    }
+
+    companion object {
+        lateinit var instance: Parrot
+            private set
+    }
+
 }
