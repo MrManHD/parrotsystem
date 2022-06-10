@@ -1,7 +1,6 @@
 package net.mrmanhd.parrot.api.service
 
 import eu.thesimplecloud.api.service.ICloudService
-import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.process.IParrotProgress
 import java.util.UUID
