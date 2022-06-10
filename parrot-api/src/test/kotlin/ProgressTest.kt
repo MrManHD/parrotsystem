@@ -5,9 +5,9 @@ class ProgressTest {
 
     init {
         ParrotApi.instance.getServiceHandler().createService(ParrotGroupDummy())
-            .maxPlayers(200)
-            .motd("Hallo ich bin ein Text")
-            .property("test", "123")
+            .withMaxPlayers(200)
+            .withMotd("Hallo ich bin ein Text")
+            .withProperty("test", "123")
             .startService()
                 .addResultListener { println("Starting") }
                 .addFailureListener { println(it.message) }

@@ -12,19 +12,19 @@ import java.util.UUID
 
 interface IParrotServiceBuilder {
 
-    fun maxPlayers(maxPlayers: Int): IParrotServiceBuilder
+    fun withMaxPlayers(maxPlayers: Int): IParrotServiceBuilder
 
-    fun motd(motd: String): IParrotServiceBuilder
+    fun withMotd(motd: String): IParrotServiceBuilder
 
-    fun privateService(): IParrotServiceBuilder
+    fun withPrivateService(): IParrotServiceBuilder
 
-    fun cloudService(cloudService: ICloudService): IParrotServiceBuilder
+    fun withCloudService(cloudService: ICloudService): IParrotServiceBuilder
 
-    fun property(key: String, value: Any): IParrotServiceBuilder
+    fun withProperty(key: String, value: Any): IParrotServiceBuilder
 
-    fun owner(playerUniqueId: UUID): IParrotServiceBuilder
+    fun withOwner(playerUniqueId: UUID): IParrotServiceBuilder
 
-    fun removeWhenServiceEmpty(): IParrotServiceBuilder
+    fun withRemoveWhenServiceEmpty(): IParrotServiceBuilder
 
     fun startService(): ICommunicationPromise<IParrotService>
 
