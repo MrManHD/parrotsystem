@@ -44,7 +44,7 @@ Wenn du diese Bedingungen erfüllst, dann hab viel spaß mit dem ParrotSystem:
 <br>
 
 ## Spielmodi
-Für das ParrotSystem gibt es schon vorab zwei vorgefertigte Spielmodi, allerdings kannst du auch mit der dafür extra angefertigte GameApi auch eigene Spielmodies erstellen.
+Für das ParrotSystem gibt es schon vorab zwei vorgefertigte Spielmodi, allerdings kannst du auch mit der dafür extra angefertigte GameApi auch eigene Spielmodies erstellen. Eine Dokumentation zur GameApi findest du <a href="https://github.com/MrManHD">HIER</a>
 
 ### Bedwars
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
