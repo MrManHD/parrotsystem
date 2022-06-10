@@ -2,7 +2,7 @@ package net.mrmanhd.parrot.api.service
 
 import eu.thesimplecloud.api.service.ICloudService
 import net.mrmanhd.parrot.api.group.IParrotGroup
-import net.mrmanhd.parrot.api.service.process.IParrotProgress
+import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
 import java.util.UUID
 
 /**
@@ -12,7 +12,7 @@ import java.util.UUID
 
 interface IServiceHandler {
 
-    fun createProgress(parrotGroup: IParrotGroup): IParrotProgress
+    fun createService(parrotGroup: IParrotGroup): IParrotServiceBuilder
 
     fun getServiceByPlayer(playerUniqueId: UUID): IParrotService? {
         return getAllServices().firstOrNull { it.isPlayerOnline(playerUniqueId) }

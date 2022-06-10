@@ -2,7 +2,7 @@ package net.mrmanhd.parrot.api.group
 
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.IParrotService
-import net.mrmanhd.parrot.api.service.process.IParrotProgress
+import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
 
 /**
  * Created by MrManHD
@@ -29,8 +29,8 @@ interface IParrotGroup {
         return getAllServices().sumOf { it.getOnlineCount() }
     }
 
-    fun createProgress(): IParrotProgress {
-        return ParrotApi.instance.getServiceHandler().createProgress(this)
+    fun createService(): IParrotServiceBuilder {
+        return ParrotApi.instance.getServiceHandler().createService(this)
     }
 
 }

@@ -4,7 +4,7 @@ import net.mrmanhd.parrot.api.group.IParrotGroup
 class ProgressTest {
 
     init {
-        ParrotApi.instance.getServiceHandler().createProgress(ParrotGroupDummy())
+        ParrotApi.instance.getServiceHandler().createService(ParrotGroupDummy())
             .maxPlayers(200)
             .motd("Hallo ich bin ein Text")
             .property("test", "123")
