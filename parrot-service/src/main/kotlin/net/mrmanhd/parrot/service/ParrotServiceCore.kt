@@ -1,8 +1,6 @@
 package net.mrmanhd.parrot.service
 
 import net.mrmanhd.parrot.lib.Parrot
-import net.mrmanhd.parrot.service.hazelcast.HazelcastClientHandler
-import net.mrmanhd.parrot.service.hazelcast.HazelcastServerHandler
 
 /**
  * Created by MrManHD
@@ -11,17 +9,14 @@ import net.mrmanhd.parrot.service.hazelcast.HazelcastServerHandler
 
 class ParrotServiceCore {
 
-    val hazelcastClientHandler = HazelcastClientHandler()
-    val hazelcastServerHandler = HazelcastServerHandler()
-
     init {
         instance = this
         Parrot()
     }
 
     fun shutdown() {
-        this.hazelcastServerHandler.stopConnection()
-        this.hazelcastClientHandler.stopConnection()
+        Parrot.instance.hazelcastServerHandler.stopConnection()
+        Parrot.instance.hazelcastClientHandler.stopConnection()
     }
 
     companion object {

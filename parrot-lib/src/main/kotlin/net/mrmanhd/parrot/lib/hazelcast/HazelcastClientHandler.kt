@@ -1,4 +1,4 @@
-package net.mrmanhd.parrot.service.hazelcast
+package net.mrmanhd.parrot.lib.hazelcast
 
 import com.hazelcast.client.HazelcastClient
 import com.hazelcast.client.config.ClientConfig
