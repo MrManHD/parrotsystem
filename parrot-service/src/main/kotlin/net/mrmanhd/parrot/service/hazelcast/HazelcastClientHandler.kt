@@ -20,7 +20,7 @@ class HazelcastClientHandler {
 
     fun startConnection() {
         val wrapperHosts = CloudAPI.instance.getWrapperManager().getAllCachedObjects().map { it.getHost() }
-        println("Hazelcast connected to hosts: ${wrapperHosts.joinToString(", ")}")
+        println("Hazelcast Client connected to hosts: ${wrapperHosts.joinToString(", ")}")
 
         this.hazelcastInstance = HazelcastClient.newHazelcastClient(getClientConfig(wrapperHosts))
     }
