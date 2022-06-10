@@ -19,4 +19,20 @@ class ParrotGroupDummy : IParrotGroup {
     override fun getName(): String {
         TODO("Not yet implemented")
     }
+
+    override fun getPreLoadedWorlds(): List<String> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getMinimumOnlineServiceCount(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun getMaxOnlineServiceCount(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun isInMaintenance(): Boolean {
+        TODO("Not yet implemented")
+    }
 }
