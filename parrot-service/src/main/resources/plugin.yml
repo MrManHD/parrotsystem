@@ -1,0 +1,10 @@
+name: parrotservice
+author: MrManHD
+version: 1.0.1
+api-version: 1.18
+depend:
+  - SimpleCloud-Plugin
+loadbefore:
+  - SimpleCloud-Plugin
+
+main: net.mrmanhd.parrot.service.service.SpigotPlugin

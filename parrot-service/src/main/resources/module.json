@@ -1,0 +1,10 @@
+{
+  "name": "parrotservice",
+  "author": "MrManHD",
+  "mainClass": "net.mrmanhd.parrot.service.cloud.CloudModule",
+  "moduleCopyType": "ALL",
+  "repositories": [],
+  "dependencies": [],
+  "depend": [],
+  "softDepend": []
+}

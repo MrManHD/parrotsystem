@@ -1,0 +1,9 @@
+{
+  "id": "parrotservice",
+  "name": "parrotservice",
+  "version": "1.0.1",
+  "authors": [
+    "MrManHD"
+  ],
+  "main": "net.mrmanhd.parrot.service.service.VelocityPlugin"
+}
