@@ -9,7 +9,7 @@ import net.mrmanhd.parrot.service.hazelcast.HazelcastServerHandler
  * Class create at 10.06.2022 19:28
  */
 
-class ParrotService {
+class ParrotServiceCore {
 
     val hazelcastClientHandler = HazelcastClientHandler()
     val hazelcastServerHandler = HazelcastServerHandler()
@@ -25,7 +25,7 @@ class ParrotService {
     }
 
     companion object {
-        lateinit var instance: ParrotService
+        lateinit var instance: ParrotServiceCore
             private set
     }
 

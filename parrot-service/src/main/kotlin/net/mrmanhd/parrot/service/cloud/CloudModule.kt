@@ -1,7 +1,7 @@
 package net.mrmanhd.parrot.service.cloud
 
 import eu.thesimplecloud.api.external.ICloudModule
-import net.mrmanhd.parrot.service.ParrotService
+import net.mrmanhd.parrot.service.ParrotServiceCore
 
 /**
  * Created by MrManHD
@@ -11,12 +11,12 @@ import net.mrmanhd.parrot.service.ParrotService
 class CloudModule : ICloudModule {
 
     override fun onEnable() {
-        val parrotService = ParrotService()
-        parrotService.hazelcastServerHandler.startConnection()
+        val parrotServiceCore = ParrotServiceCore()
+        parrotServiceCore.hazelcastServerHandler.startConnection()
     }
 
     override fun onDisable() {
-        ParrotService.instance.shutdown()
+        ParrotServiceCore.instance.shutdown()
     }
 
 }

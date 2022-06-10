@@ -5,7 +5,7 @@ import com.velocitypowered.api.event.Subscribe
 import com.velocitypowered.api.event.proxy.*
 import com.velocitypowered.api.plugin.Plugin
 import com.velocitypowered.api.proxy.ProxyServer
-import net.mrmanhd.parrot.service.ParrotService
+import net.mrmanhd.parrot.service.ParrotServiceCore
 import java.util.logging.Logger
 
 /**
@@ -21,13 +21,13 @@ class VelocityPlugin @Inject constructor(
 
     @Subscribe
     fun handleProxyInitialization(event: ProxyInitializeEvent) {
-        val parrotService = ParrotService()
-        parrotService.hazelcastClientHandler.startConnection()
+        val parrotServiceCore = ParrotServiceCore()
+        parrotServiceCore.hazelcastClientHandler.startConnection()
     }
 
     @Subscribe
     fun handleProxyShutdown(event: ProxyShutdownEvent) {
-        ParrotService.instance.shutdown()
+        ParrotServiceCore.instance.shutdown()
     }
 
 }

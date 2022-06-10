@@ -1,6 +1,6 @@
 package net.mrmanhd.parrot.service.service
 
-import net.mrmanhd.parrot.service.ParrotService
+import net.mrmanhd.parrot.service.ParrotServiceCore
 import org.bukkit.plugin.java.JavaPlugin
 
 /**
@@ -11,12 +11,12 @@ import org.bukkit.plugin.java.JavaPlugin
 class SpigotPlugin : JavaPlugin() {
 
     override fun onEnable() {
-        val parrotService = ParrotService()
-        parrotService.hazelcastClientHandler.startConnection()
+        val parrotServiceCore = ParrotServiceCore()
+        parrotServiceCore.hazelcastClientHandler.startConnection()
     }
 
     override fun onDisable() {
-        ParrotService.instance.shutdown()
+        ParrotServiceCore.instance.shutdown()
     }
 
 }
