@@ -16,12 +16,7 @@
       </ul>
     </li>
     <li><a href="#features">Features</a></li>
-    <li>
-      <a href="#parrotapi">ParrotApi</a>
-      <ul>
-        <li><a href="#123">123</a></li>
-      </ul>
-    </li>
+    <li><a href="https://github.com/MrManHD/parrotsystem/wiki/ParrotApi">ParrotApi</a></li>
     <li><a href="#gameapi">GameApi</a></li>
   </ol>
 </details>
