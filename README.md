@@ -30,7 +30,7 @@
 <br />
 
 ## Was ist das ParrotSystem?
-Mit diesem System kannst du auf einen einzelnen Minecraft-Server mehrere Spiele laufen lassen. Du kannst darauf Spiele wie z.B. Bedwars oder Skywars spielen.
+Mit dem ParrotSystem bist du in der Lage, mehrere Runden eines oder mehrere Minispiele laufen zu lassen. Hierbei ist es auch egal, was es für ein Minispiel ist. Es können Bedwars Runden, Skywars Runden oder was völlig anderes sein. Es müss von nun an mit diesem System nicht mehr alles auf einzelne Servern stattfinden.
 
 ### Einrichtung
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
