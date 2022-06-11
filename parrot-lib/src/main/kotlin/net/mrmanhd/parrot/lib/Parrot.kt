@@ -1,5 +1,6 @@
 package net.mrmanhd.parrot.lib
 
+import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastClientHandler
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastServerHandler
 import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
@@ -18,6 +19,7 @@ class Parrot {
 
     init {
         instance = this
+        ParrotLib()
     }
 
     fun shutdown() {
