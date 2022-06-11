@@ -24,6 +24,7 @@
     </li>
     <li><a href="https://github.com/MrManHD/parrotsystem/wiki/ParrotApi">ParrotApi</a></li>
     <li><a href="#gameapi">GameApi</a></li>
+    <li><a href="#demoserver">Demoserver</a></li>
   </ol>
 </details>
 
@@ -52,6 +53,12 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 ### 1vs1
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 
+<br>
+
+## Demoserver
+Du kannst dir auch gerne selber einen Überblick erschaffen, indem du dich auf dem Demoserver umschaust. Du kannst den Server mit der Adresse MrManHD.net betreten!
+
+<br>
 <br>
 <br>
 <br>
