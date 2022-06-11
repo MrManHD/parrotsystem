@@ -1,7 +1,6 @@
 package net.mrmanhd.parrot.lib.api.group
 
 import net.mrmanhd.parrot.api.group.IParrotGroup
-import java.io.Serializable
 
 /**
  * Created by MrManHD
@@ -14,7 +13,7 @@ class ParrotGroup(
     private val minimumOnlineServiceCount: Int,
     private val maxOnlineServiceCount: Int,
     private val maintenance: Boolean
-) : IParrotGroup, Serializable {
+) : IParrotGroup {
 
     override fun getName(): String = this.name
 

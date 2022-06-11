@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.lib
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastClientHandler
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastServerHandler
+import net.mrmanhd.parrot.lib.repository.ParrotGroupRepository
 import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
 
 /**
@@ -16,6 +17,7 @@ class Parrot {
     val hazelcastServerHandler = HazelcastServerHandler()
 
     val parrotServiceRepository = ParrotServiceRepository()
+    val parrotGroupRepository = ParrotGroupRepository()
 
     init {
         instance = this

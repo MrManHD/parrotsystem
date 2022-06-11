@@ -15,7 +15,7 @@ import java.util.UUID
 
 class ParrotServiceInfo(
     val uniqueId: UUID,
-    val parrotGroup: ParrotGroup,
+    val parrotGroup: ParrotGroupInfo,
     val cloudServiceName: String,
     val name: String,
     val createdAt: Long,
@@ -31,7 +31,7 @@ class ParrotServiceInfo(
     fun convertToParrotService(): ParrotService {
         return ParrotService(
             this.uniqueId,
-            this.parrotGroup,
+            this.parrotGroup.convertToParrotGroup(),
             this.name,
             this.owner,
             this.privateService,
