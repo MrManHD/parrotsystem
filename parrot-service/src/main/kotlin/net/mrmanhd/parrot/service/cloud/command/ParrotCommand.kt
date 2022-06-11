@@ -16,6 +16,7 @@ class ParrotCommand : ICommandHandler {
 
     @CommandSubPath
     fun handleExecute(sender: ICommandSender) {
+        sender.sendMessage(">> parrot reload groups")
         sender.sendMessage(">> parrot creategroup <GroupName> <MinimumOnlineServiceCount> <MaxOnlineServiceCount>")
     }
 
