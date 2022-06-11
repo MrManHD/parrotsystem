@@ -3,14 +3,8 @@
   "author": "MrManHD",
   "mainClass": "net.mrmanhd.parrot.service.cloud.CloudModule",
   "moduleCopyType": "ALL",
-  "repositories": ["https://jitpack.io/", "https://repo.maven.apache.org/maven2/"],
-  "dependencies": [
-    {
-      "groupId": "com.hazelcast",
-      "artifactId": "hazelcast",
-      "version": "5.1.1"
-    }
-  ],
+  "repositories": [],
+  "dependencies": [],
   "depend": [],
   "softDepend": []
 }
