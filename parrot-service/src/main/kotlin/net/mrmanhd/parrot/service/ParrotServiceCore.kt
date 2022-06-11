@@ -15,8 +15,7 @@ class ParrotServiceCore {
     }
 
     fun shutdown() {
-        Parrot.instance.hazelcastServerHandler.stopConnection()
-        Parrot.instance.hazelcastClientHandler.stopConnection()
+        Parrot.instance.shutdown()
     }
 
     companion object {

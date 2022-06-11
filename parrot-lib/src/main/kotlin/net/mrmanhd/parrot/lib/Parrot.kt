@@ -20,6 +20,11 @@ class Parrot {
         instance = this
     }
 
+    fun shutdown() {
+        this.hazelcastServerHandler.stopConnection()
+        this.hazelcastClientHandler.stopConnection()
+    }
+
     companion object {
         lateinit var instance: Parrot
             private set
