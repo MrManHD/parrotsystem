@@ -72,6 +72,12 @@ class ParrotService(
         serviceInfo.update()
     }
 
+    override fun removeProperty(key: String) {
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.propertyMap.remove(key)
+        serviceInfo.update()
+    }
+
     override fun getGamePlayers(): List<IGamePlayer> {
         TODO("Not yet implemented")
     }

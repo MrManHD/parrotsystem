@@ -69,6 +69,8 @@ interface IParrotService {
 
     fun setProperty(key: String, value: Any)
 
+    fun removeProperty(key: String)
+
 
     fun getGamePlayers(): List<IGamePlayer>
 
