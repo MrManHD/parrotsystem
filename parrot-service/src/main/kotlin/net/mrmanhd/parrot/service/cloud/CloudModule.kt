@@ -11,6 +11,8 @@ import net.mrmanhd.parrot.service.ParrotServiceCore
 
 class CloudModule : ICloudModule {
 
+    override fun isReloadable(): Boolean = false
+
     override fun onEnable() {
         ParrotServiceCore()
         Parrot.instance.hazelcastServerHandler.startConnection()
