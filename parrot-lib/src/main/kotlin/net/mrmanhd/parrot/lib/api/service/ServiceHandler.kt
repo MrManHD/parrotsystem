@@ -1,11 +1,19 @@
 package net.mrmanhd.parrot.lib.api.service
 
+import eu.thesimplecloud.api.service.ICloudService
+import eu.thesimplecloud.clientserverapi.lib.promise.CommunicationPromise
 import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.IServiceHandler
-import net.mrmanhd.parrot.api.service.process.IParrotProgress
-import net.mrmanhd.parrot.lib.api.service.progress.ParrotProgress
+import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
+import net.mrmanhd.parrot.lib.Parrot
+import net.mrmanhd.parrot.lib.api.group.ParrotGroup
+import net.mrmanhd.parrot.lib.api.service.progress.ParrotServiceBuilder
+import net.mrmanhd.parrot.lib.exception.CloudServiceNotFoundException
+import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
+import net.mrmanhd.parrot.lib.utils.ServiceNumberGenerator
+import java.util.*
 
 /**
  * Created by MrManHD
@@ -14,16 +22,42 @@ import net.mrmanhd.parrot.lib.api.service.progress.ParrotProgress
 
 class ServiceHandler : IServiceHandler {
 
-    fun startService(progress: ParrotProgress): ICommunicationPromise<IParrotService> {
-        TODO()
+    fun startService(progress: ParrotServiceBuilder): ICommunicationPromise<IParrotService> {
+        val cloudService = progress.getCloudService() ?: return CommunicationPromise<IParrotService>()
+            .setFailure(CloudServiceNotFoundException())
+        return CommunicationPromise.runAsync { handleAsyncPromise(progress, cloudService) }
     }
 
-    override fun createProgress(parrotGroup: IParrotGroup): IParrotProgress {
-        return ParrotProgress(parrotGroup)
+    override fun createService(parrotGroup: IParrotGroup): IParrotServiceBuilder {
+        return ParrotServiceBuilder(parrotGroup)
     }
 
     override fun getAllServices(): List<IParrotService> {
-        TODO("Not yet implemented")
+        return Parrot.instance.parrotServiceRepository.getAllParrotServices()
+    }
+
+    private fun handleAsyncPromise(progress: ParrotServiceBuilder, cloudService: ICloudService): ParrotService {
+        // TODO: handle here connection to manager
+        return createNewServiceInstance(progress, cloudService.getName())
+    }
+
+    private fun createNewServiceInstance(progress: ParrotServiceBuilder, cloudServiceName: String): ParrotService {
+        val parrotGroup = progress.parrotGroup as ParrotGroup
+        val number = ServiceNumberGenerator(parrotGroup).getNumber()
+
+        val parrotServiceInfo = ParrotServiceInfo(
+            UUID.randomUUID(),
+            parrotGroup,
+            cloudServiceName,
+            "${parrotGroup.getName()}-$number",
+            System.currentTimeMillis(),
+            progress.owner,
+            progress.isPrivateService,
+            progress.isRemoveWhenServiceEmpty
+        )
+        parrotServiceInfo.update()
+
+        return parrotServiceInfo.convertToParrotService()
     }
 
 }
