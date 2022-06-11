@@ -40,4 +40,13 @@ class TestCommand : BaseCommand() {
         }
     }
 
+    @SubCommand("groups")
+    fun executeGroups(sender: CommandSender) {
+        sender as Player
+
+        ParrotApi.instance.getGroupHandler().getAllGroups().forEach {
+            sender.sendMessage("> ${it.getName()}")
+        }
+    }
+
 }

@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.lib.api.group
 
 import net.mrmanhd.parrot.api.group.IGroupHandler
 import net.mrmanhd.parrot.api.group.IParrotGroup
+import net.mrmanhd.parrot.lib.Parrot
 
 /**
  * Created by MrManHD
@@ -11,7 +12,7 @@ import net.mrmanhd.parrot.api.group.IParrotGroup
 class GroupHandler : IGroupHandler {
 
     override fun getAllGroups(): List<IParrotGroup> {
-        TODO("Not yet implemented")
+        return Parrot.instance.parrotGroupRepository.getAllParrotGroups()
     }
 
 }
