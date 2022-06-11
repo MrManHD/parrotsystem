@@ -3,9 +3,7 @@ package net.mrmanhd.parrot.service.cloud.command
 import eu.thesimplecloud.api.command.ICommandSender
 import eu.thesimplecloud.launcher.console.command.CommandType
 import eu.thesimplecloud.launcher.console.command.ICommandHandler
-import eu.thesimplecloud.launcher.console.command.annotations.Command
-import eu.thesimplecloud.launcher.console.command.annotations.CommandArgument
-import eu.thesimplecloud.launcher.console.command.annotations.CommandSubPath
+import eu.thesimplecloud.launcher.console.command.annotations.*
 import net.mrmanhd.parrot.service.cloud.CloudModule
 import net.mrmanhd.parrot.service.cloud.group.Group
 
