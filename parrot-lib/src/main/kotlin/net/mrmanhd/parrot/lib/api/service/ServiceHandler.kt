@@ -6,10 +6,10 @@ import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.IServiceHandler
-import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
-import net.mrmanhd.parrot.lib.api.service.progress.ParrotServiceBuilder
+import net.mrmanhd.parrot.lib.api.service.builder.ParrotServiceBuilder
 import net.mrmanhd.parrot.lib.exception.CloudServiceNotFoundException
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
 import net.mrmanhd.parrot.lib.utils.ServiceNumberGenerator

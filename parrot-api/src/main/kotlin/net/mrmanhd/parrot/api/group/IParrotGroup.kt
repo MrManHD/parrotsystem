@@ -2,7 +2,7 @@ package net.mrmanhd.parrot.api.group
 
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.IParrotService
-import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 
 /**
  * Created by MrManHD

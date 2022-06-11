@@ -2,7 +2,7 @@ package net.mrmanhd.parrot.api.service
 
 import eu.thesimplecloud.api.service.ICloudService
 import net.mrmanhd.parrot.api.group.IParrotGroup
-import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 import java.util.UUID
 
 /**

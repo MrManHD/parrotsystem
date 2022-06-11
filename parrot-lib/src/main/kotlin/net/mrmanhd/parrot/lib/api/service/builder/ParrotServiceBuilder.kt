@@ -1,11 +1,11 @@
-package net.mrmanhd.parrot.lib.api.service.progress
+package net.mrmanhd.parrot.lib.api.service.builder
 
 import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.service.ICloudService
 import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
-import net.mrmanhd.parrot.api.service.process.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import java.util.*
 
