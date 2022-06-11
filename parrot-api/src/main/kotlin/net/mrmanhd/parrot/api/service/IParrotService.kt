@@ -57,7 +57,11 @@ interface IParrotService {
     }
 
 
-    fun getProperty(key: String): Any?
+    fun getProperties(): Map<String, Any>
+
+    fun getProperty(key: String): Any? {
+        return getProperties()[key]
+    }
 
     fun hasProperty(key: String): Boolean {
         return getProperty(key) != null

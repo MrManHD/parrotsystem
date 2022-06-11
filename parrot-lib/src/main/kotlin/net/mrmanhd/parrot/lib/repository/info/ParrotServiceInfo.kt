@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.lib.repository.info
 
 import eu.thesimplecloud.jsonlib.JsonLib
 import net.mrmanhd.parrot.api.ParrotApi
+import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.ParrotService
@@ -21,8 +22,13 @@ class ParrotServiceInfo(
     val createdAt: Long,
     val owner: UUID?,
     val privateService: Boolean,
-    val removeWhenServiceEmpty: Boolean
+    val removeWhenServiceEmpty: Boolean,
+    var motd: String,
+    var maxPlayers: Int,
+    val propertyMap: HashMap<String, Any>
 ) : Serializable {
+
+    var state = ServiceState.STARTING
 
     fun convertToJsonString(): String {
         return JsonLib.fromObject(this).getAsJsonString()

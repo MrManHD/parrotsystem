@@ -28,9 +28,7 @@ class ParrotService(
 
     override fun getUniqueId(): UUID = this.uniqueId
 
-    override fun getGroup(): IParrotGroup {
-        return this.parrotGroup
-    }
+    override fun getGroup(): IParrotGroup = this.parrotGroup
 
     override fun getName(): String = this.name
 
@@ -38,40 +36,40 @@ class ParrotService(
 
     override fun getCloudServiceName(): String = this.cloudServiceName
 
-    override fun getOwner(): UUID? {
-        return this.owner
-    }
+    override fun getOwner(): UUID? = this.owner
 
-    override fun isPrivate(): Boolean {
-        return this.privateService
-    }
+    override fun isPrivate(): Boolean = this.privateService
 
-    override fun isRemoveWhenServiceEmpty(): Boolean {
-        return this.removeWhenServiceEmpty
-    }
+    override fun isRemoveWhenServiceEmpty(): Boolean = this.removeWhenServiceEmpty
 
     override fun getMotd(): String {
-        TODO("Not yet implemented")
+        return getInfo()?.motd ?: "Just Another ParrotService"
     }
 
     override fun setMotd(motd: String) {
-        TODO("Not yet implemented")
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.motd = motd
+        serviceInfo.update()
     }
 
     override fun getState(): ServiceState {
-        TODO("Not yet implemented")
+        return getInfo()?.state ?: ServiceState.OFFLINE
     }
 
     override fun setState(state: ServiceState) {
-        TODO("Not yet implemented")
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.state = state
+        serviceInfo.update()
     }
 
-    override fun getProperty(key: String): Any? {
-        TODO("Not yet implemented")
+    override fun getProperties(): Map<String, Any> {
+        return getInfo()?.propertyMap ?: emptyMap()
     }
 
     override fun setProperty(key: String, value: Any) {
-        TODO("Not yet implemented")
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.propertyMap[key] = value
+        serviceInfo.update()
     }
 
     override fun getGamePlayers(): List<IGamePlayer> {
@@ -87,11 +85,13 @@ class ParrotService(
     }
 
     override fun getMaxPlayers(): Int {
-        TODO("Not yet implemented")
+        return getInfo()?.maxPlayers ?: 0
     }
 
     override fun setMaxPlayers(maxPlayers: Int) {
-        TODO("Not yet implemented")
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.maxPlayers = maxPlayers
+        serviceInfo.update()
     }
 
     override fun loadWorld(slimeWorldName: String) {

@@ -53,7 +53,10 @@ class ServiceHandler : IServiceHandler {
             System.currentTimeMillis(),
             progress.owner,
             progress.isPrivateService,
-            progress.isRemoveWhenServiceEmpty
+            progress.isRemoveWhenServiceEmpty,
+            progress.motd,
+            progress.maxPlayers,
+            progress.propertyMap
         )
         parrotServiceInfo.update()
 

@@ -35,8 +35,10 @@ class TestCommand : BaseCommand() {
     fun executeList(sender: CommandSender) {
         sender as Player
 
+        sender.sendMessage("")
         ParrotApi.instance.getServiceHandler().getAllServices().forEach {
-            sender.sendMessage("> ${it.getName()} / ${it.getGroup()} / ${it.getCloudServiceName()}")
+            sender.sendMessage(it.toJsonString())
+            sender.sendMessage("")
         }
     }
 
