@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.2-R0.1-SNAPSHOT")
-    compileOnly(project(":parrot-lib"))
+    api(project(":parrot-lib"))
 
     compileOnly 'com.velocitypowered:velocity-api:3.0.0-SNAPSHOT'
     annotationProcessor 'com.velocitypowered:velocity-api:3.0.0-SNAPSHOT'
