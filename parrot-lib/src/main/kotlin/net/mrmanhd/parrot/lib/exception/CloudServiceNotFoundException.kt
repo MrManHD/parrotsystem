@@ -5,4 +5,4 @@ package net.mrmanhd.parrot.lib.exception
  * Class create at 10.06.2022 23:01
  */
 
-class CloudServiceNotFoundException : Exception()
+class CloudServiceNotFoundException : Exception("No CloudService found")
