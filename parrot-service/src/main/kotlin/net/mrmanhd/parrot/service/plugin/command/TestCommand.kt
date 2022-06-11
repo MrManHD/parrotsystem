@@ -22,7 +22,7 @@ class TestCommand : BaseCommand() {
     fun execute(sender: CommandSender) {
         sender as Player
 
-        val parrotGroup = ParrotGroup("bedwars", listOf(), 5, 10, false)
+        val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName("bedwars")!!
         ParrotApi.instance.getServiceHandler().createService(parrotGroup)
             .withMaxPlayers(200)
             .withCloudService(sender.getCloudPlayer().getConnectedServer()!!)
