@@ -1,4 +1,4 @@
-package net.mrmanhd.parrot.service.service
+package net.mrmanhd.parrot.service.velocity
 
 import com.google.inject.Inject
 import com.velocitypowered.api.event.Subscribe

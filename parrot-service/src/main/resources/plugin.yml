@@ -7,4 +7,4 @@ depend:
 loadbefore:
   - SimpleCloud-Plugin
 
-main: net.mrmanhd.parrot.service.service.SpigotPlugin
+main: net.mrmanhd.parrot.service.plugin.SpigotPlugin

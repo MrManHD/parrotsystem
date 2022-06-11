@@ -12,6 +12,8 @@ allprojects {
     repositories {
         mavenCentral()
 
+        maven { url = "https://repo.triumphteam.dev/snapshots/" }
+
         maven { url 'https://repo.thesimplecloud.eu/artifactory/list/gradle-release-local/' }
         maven { url 'https://repo.thesimplecloud.eu/artifactory/list/gradle-dev-local/' }
 
