@@ -26,37 +26,37 @@ class ParrotServiceBuilder(
     var owner: UUID? = null
     var isRemoveWhenServiceEmpty = false
 
-    override fun maxPlayers(maxPlayers: Int): IParrotServiceBuilder {
+    override fun withMaxPlayers(maxPlayers: Int): IParrotServiceBuilder {
         this.maxPlayers = maxPlayers
         return this
     }
 
-    override fun motd(motd: String): IParrotServiceBuilder {
+    override fun withMotd(motd: String): IParrotServiceBuilder {
         this.motd = motd
         return this
     }
 
-    override fun privateService(): IParrotServiceBuilder {
+    override fun withPrivateService(): IParrotServiceBuilder {
         this.isPrivateService = true
         return this
     }
 
-    override fun cloudService(cloudService: ICloudService): IParrotServiceBuilder {
+    override fun withCloudService(cloudService: ICloudService): IParrotServiceBuilder {
         this.cloudServiceName = cloudService.getName()
         return this
     }
 
-    override fun property(key: String, value: Any): IParrotServiceBuilder {
+    override fun withProperty(key: String, value: Any): IParrotServiceBuilder {
         this.propertyMap[key] = value
         return this
     }
 
-    override fun owner(playerUniqueId: UUID): IParrotServiceBuilder {
+    override fun withOwner(playerUniqueId: UUID): IParrotServiceBuilder {
         this.owner = playerUniqueId
         return this
     }
 
-    override fun removeWhenServiceEmpty(): IParrotServiceBuilder {
+    override fun withRemoveWhenServiceEmpty(): IParrotServiceBuilder {
         this.isRemoveWhenServiceEmpty = true
         return this
     }
