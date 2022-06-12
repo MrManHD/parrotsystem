@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.lib.messagechannel.listener
 
 import eu.thesimplecloud.api.message.IMessageListener
 import eu.thesimplecloud.api.network.component.INetworkComponent
+import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
 
 /**
@@ -12,9 +13,15 @@ import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
 class ParrotServiceStateListener : IMessageListener<ParrotServiceStateDTO> {
 
     override fun messageReceived(msg: ParrotServiceStateDTO, sender: INetworkComponent) {
+        val parrotService = msg.getParrotService() ?: return
+        val localServiceHandler = ParrotLib.instance.localServiceHandler
+
         if (msg.type == ParrotServiceStateDTO.Type.STARTING) {
-            println("starte ${msg.parrotName}")
+            localServiceHandler.addLocalService(parrotService)
+            return
         }
+
+        localServiceHandler.removeLocalService(parrotService)
     }
 
 }

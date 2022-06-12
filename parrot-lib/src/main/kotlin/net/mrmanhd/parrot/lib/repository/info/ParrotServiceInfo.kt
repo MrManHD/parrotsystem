@@ -4,6 +4,7 @@ import eu.thesimplecloud.jsonlib.JsonLib
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.Parrot
+import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.ParrotService
 import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
@@ -52,6 +53,9 @@ class ParrotServiceInfo(
     }
 
     fun update() {
+        val localServiceHandler = ParrotLib.instance.localServiceHandler
+        localServiceHandler.updateLocalService(convertToParrotService())
+
         Parrot.instance.parrotServiceRepository.insert(this.uniqueId, this)
     }
 
