@@ -8,6 +8,8 @@ import net.mrmanhd.parrot.lib.messagechannel.MessageChannelRegistry
 import net.mrmanhd.parrot.lib.repository.ChatMessageRepository
 import net.mrmanhd.parrot.lib.repository.ParrotGroupRepository
 import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
+import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledExecutorService
 
 /**
  * Created by MrManHD
@@ -15,6 +17,8 @@ import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
  */
 
 class Parrot {
+
+    val scheduler = Executors.newScheduledThreadPool(1)
 
     val chatMessageService = ChatMessageService()
 
