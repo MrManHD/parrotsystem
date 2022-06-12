@@ -8,7 +8,7 @@ dependencies {
     api(project(":parrot-lib"))
     api("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
 
-    compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-launcher:2.2.0'
+    compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-launcher:2.3.0'
 
     compileOnly 'com.velocitypowered:velocity-api:3.0.0-SNAPSHOT'
     annotationProcessor 'com.velocitypowered:velocity-api:3.0.0-SNAPSHOT'

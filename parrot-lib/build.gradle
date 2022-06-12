@@ -7,7 +7,7 @@ dependencies {
     api 'com.hazelcast:hazelcast:5.1.1'
     paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.2-R0.1-SNAPSHOT")
 
-    compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-launcher:2.2.0'
+    compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-launcher:2.3.0'
 }
 
 tasks {
