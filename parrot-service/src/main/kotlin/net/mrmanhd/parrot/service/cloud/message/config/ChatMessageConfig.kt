@@ -1,4 +1,4 @@
-package net.mrmanhd.parrot.service.cloud.config
+package net.mrmanhd.parrot.service.cloud.message.config
 
 /**
  * Created by MrManHD
