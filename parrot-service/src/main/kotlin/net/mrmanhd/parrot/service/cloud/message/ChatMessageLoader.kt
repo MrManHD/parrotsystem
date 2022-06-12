@@ -1,8 +1,8 @@
 package net.mrmanhd.parrot.service.cloud.message
 
 import eu.thesimplecloud.api.config.AbstractJsonLibConfigLoader
-import net.mrmanhd.parrot.service.cloud.config.ChatMessageConfig
-import net.mrmanhd.parrot.service.cloud.config.DefaultChatMessageConfig
+import net.mrmanhd.parrot.service.cloud.message.config.ChatMessageConfig
+import net.mrmanhd.parrot.service.cloud.message.config.DefaultChatMessageConfig
 import java.io.File
 
 /**
