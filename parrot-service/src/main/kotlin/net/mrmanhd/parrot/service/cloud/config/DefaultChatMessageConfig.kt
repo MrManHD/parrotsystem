@@ -15,7 +15,10 @@ object DefaultChatMessageConfig {
 
     private fun getMessages(): Map<String, String> {
         return hashMapOf(
-            Pair("test.test", "Hallo {0}")
+            Pair("connector.failed.service.null", "§cEs gab gerade ein Problem beim verbinden des Servers!"),
+            Pair("connector.failed.round.ends", "§cDiese Runde ist bereits beendet!"),
+            Pair("connector.failed.round.full", "§cDiese Runde ist bereits voll!"),
+            Pair("connector.failed.round.connected", "§cDu bist bereits in dieser Runde!")
         )
     }
 
