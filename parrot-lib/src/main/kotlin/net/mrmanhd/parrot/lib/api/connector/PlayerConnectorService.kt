@@ -61,7 +61,7 @@ class PlayerConnectorService : IPlayerConnectorService {
 
         val cloudService = parrotService.getCloudService()
         if (cloudService == null) {
-            cloudPlayer.sendChatMessage("connector.failed.service.null")
+            cloudPlayer.sendChatMessage("connector.failed.service.null","PCS-64")
             return
         }
 
