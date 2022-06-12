@@ -28,7 +28,6 @@ class PlayerConnectorListener : IMessageListener<PlayerConnectorDTO> {
             cloudPlayer.sendToLobby()
             cloudPlayer.sendChatMessage("connector.failed.service.null", "PCL-25")
         }
-
     }
 
 }
