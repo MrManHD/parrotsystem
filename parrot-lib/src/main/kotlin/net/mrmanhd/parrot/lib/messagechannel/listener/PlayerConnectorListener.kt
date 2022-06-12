@@ -4,7 +4,6 @@ import eu.thesimplecloud.api.message.IMessageListener
 import eu.thesimplecloud.api.network.component.INetworkComponent
 import eu.thesimplecloud.api.player.ICloudPlayer
 import net.mrmanhd.parrot.api.service.IParrotService
-import net.mrmanhd.parrot.lib.api.service.ParrotService
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import net.mrmanhd.parrot.lib.messagechannel.dto.PlayerConnectorDTO
 
