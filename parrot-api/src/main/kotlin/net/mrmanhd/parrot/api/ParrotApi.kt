@@ -1,6 +1,7 @@
 package net.mrmanhd.parrot.api
 
 import com.hazelcast.core.HazelcastInstance
+import net.mrmanhd.parrot.api.connector.IPlayerConnectorService
 import net.mrmanhd.parrot.api.group.IGroupHandler
 import net.mrmanhd.parrot.api.service.ILocalServiceHandler
 import net.mrmanhd.parrot.api.service.IServiceHandler
@@ -23,6 +24,8 @@ abstract class ParrotApi {
     abstract fun getGroupHandler(): IGroupHandler
 
     abstract fun getHazelcast(): HazelcastInstance
+
+    abstract fun getPlayerConnectorService(): IPlayerConnectorService
 
     companion object {
         lateinit var instance: ParrotApi

@@ -2,10 +2,12 @@ package net.mrmanhd.parrot.lib.api
 
 import com.hazelcast.core.HazelcastInstance
 import net.mrmanhd.parrot.api.ParrotApi
+import net.mrmanhd.parrot.api.connector.IPlayerConnectorService
 import net.mrmanhd.parrot.api.group.IGroupHandler
 import net.mrmanhd.parrot.api.service.ILocalServiceHandler
 import net.mrmanhd.parrot.api.service.IServiceHandler
 import net.mrmanhd.parrot.lib.Parrot
+import net.mrmanhd.parrot.lib.api.connector.PlayerConnectorService
 import net.mrmanhd.parrot.lib.api.group.GroupHandler
 import net.mrmanhd.parrot.lib.api.service.LocalServiceHandler
 import net.mrmanhd.parrot.lib.api.service.ServiceHandler
@@ -20,6 +22,7 @@ class ParrotLib : ParrotApi() {
     val serviceHandler = ServiceHandler()
     val groupHandler = GroupHandler()
     val localServiceHandler = LocalServiceHandler()
+    val playerConnectorService = PlayerConnectorService()
 
     init {
         instance = this
@@ -35,6 +38,8 @@ class ParrotLib : ParrotApi() {
         return Parrot.instance.hazelcastServerHandler.getHazelcastInstance()
             ?: Parrot.instance.hazelcastClientHandler.getHazelcastInstance()!!
     }
+
+    override fun getPlayerConnectorService(): IPlayerConnectorService = this.playerConnectorService
 
     companion object {
         lateinit var instance: ParrotLib

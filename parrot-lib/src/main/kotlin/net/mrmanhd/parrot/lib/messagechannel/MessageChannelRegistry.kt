@@ -3,8 +3,10 @@ package net.mrmanhd.parrot.lib.messagechannel
 import eu.thesimplecloud.api.CloudAPI
 import net.mrmanhd.parrot.lib.messagechannel.dto.CloudMessageDTO
 import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
+import net.mrmanhd.parrot.lib.messagechannel.dto.PlayerConnectorDTO
 import net.mrmanhd.parrot.lib.messagechannel.listener.CloudMessageListener
 import net.mrmanhd.parrot.lib.messagechannel.listener.ParrotServiceStateListener
+import net.mrmanhd.parrot.lib.messagechannel.listener.PlayerConnectorListener
 
 /**
  * Created by MrManHD
@@ -29,6 +31,12 @@ class MessageChannelRegistry {
             "parrot-service-state",
             ParrotServiceStateDTO::class.java
         )
+
+        this.messageChannelManager.registerMessageChannel(
+            cloudModule,
+            "parrot-player-connector",
+            PlayerConnectorDTO::class.java
+        )
     }
 
     fun registerListeners() {
@@ -36,11 +44,14 @@ class MessageChannelRegistry {
             ?.registerListener(CloudMessageListener())
         this.messageChannelManager.getMessageChannelByName<ParrotServiceStateDTO>("parrot-service-state")
             ?.registerListener(ParrotServiceStateListener())
+        this.messageChannelManager.getMessageChannelByName<PlayerConnectorDTO>("parrot-player-connector")
+            ?.registerListener(PlayerConnectorListener())
     }
 
     fun unregisterChannels() {
         this.messageChannelManager.unregisterMessageChannel("parrot-cloud-message")
         this.messageChannelManager.unregisterMessageChannel("parrot-service-state")
+        this.messageChannelManager.unregisterMessageChannel("parrot-player-connector")
     }
 
 }
