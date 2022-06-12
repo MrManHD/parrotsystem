@@ -19,6 +19,7 @@ class CloudModule : ICloudModule {
     override fun isReloadable(): Boolean = false
 
     override fun onEnable() {
+        instance = this
         ParrotServiceCore()
         Parrot.instance.hazelcastServerHandler.startConnection()
         this.groupHandler.loadGroups()
