@@ -20,6 +20,10 @@ interface IParrotService {
 
     fun getGroup(): IParrotGroup
 
+    fun getGroupName(): String {
+        return getGroup().getName()
+    }
+
     fun getName(): String
 
     fun createdAt(): Long
