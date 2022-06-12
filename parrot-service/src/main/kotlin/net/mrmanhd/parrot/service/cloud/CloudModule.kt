@@ -6,6 +6,7 @@ import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.service.ParrotServiceCore
 import net.mrmanhd.parrot.service.cloud.command.*
 import net.mrmanhd.parrot.service.cloud.group.GroupHandler
+import net.mrmanhd.parrot.service.cloud.message.ChatMessageHandler
 
 /**
  * Created by MrManHD
@@ -15,14 +16,19 @@ import net.mrmanhd.parrot.service.cloud.group.GroupHandler
 class CloudModule : ICloudModule {
 
     val groupHandler = GroupHandler()
+    val chatMessageHandler = ChatMessageHandler()
 
     override fun isReloadable(): Boolean = false
 
     override fun onEnable() {
         instance = this
         ParrotServiceCore()
+
         Parrot.instance.hazelcastServerHandler.startConnection()
+
         this.groupHandler.loadGroups()
+        this.chatMessageHandler.loadChatMessages()
+
         registerEvents()
     }
 

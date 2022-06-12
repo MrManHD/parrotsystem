@@ -3,7 +3,9 @@ package net.mrmanhd.parrot.lib
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastClientHandler
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastServerHandler
+import net.mrmanhd.parrot.lib.message.ChatMessageService
 import net.mrmanhd.parrot.lib.messagechannel.MessageChannelRegistry
+import net.mrmanhd.parrot.lib.repository.ChatMessageRepository
 import net.mrmanhd.parrot.lib.repository.ParrotGroupRepository
 import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
 
@@ -14,11 +16,14 @@ import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
 
 class Parrot {
 
+    val chatMessageService = ChatMessageService()
+
     val hazelcastClientHandler = HazelcastClientHandler()
     val hazelcastServerHandler = HazelcastServerHandler()
 
     val parrotServiceRepository = ParrotServiceRepository()
     val parrotGroupRepository = ParrotGroupRepository()
+    val chatMessageRepository = ChatMessageRepository()
 
     val messageChannelRegistry = MessageChannelRegistry()
 

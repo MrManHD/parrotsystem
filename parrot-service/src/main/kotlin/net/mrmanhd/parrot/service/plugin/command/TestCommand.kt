@@ -6,7 +6,7 @@ import dev.triumphteam.cmd.core.annotation.Default
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import eu.thesimplecloud.plugin.extension.getCloudPlayer
 import net.mrmanhd.parrot.api.ParrotApi
-import net.mrmanhd.parrot.lib.api.group.ParrotGroup
+import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
@@ -49,6 +49,12 @@ class TestCommand : BaseCommand() {
         ParrotApi.instance.getGroupHandler().getAllGroups().forEach {
             sender.sendMessage("> ${it.getName()}")
         }
+    }
+
+    @SubCommand("message")
+    fun executeMessages(sender: CommandSender) {
+        sender as Player
+        sender.sendChatMessage("test.test", sender.name)
     }
 
 }
