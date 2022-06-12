@@ -11,6 +11,7 @@ import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.builder.ParrotServiceBuilder
 import net.mrmanhd.parrot.lib.exception.CloudServiceNotFoundException
+import net.mrmanhd.parrot.lib.extension.sendCloudMessage
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
 import net.mrmanhd.parrot.lib.utils.ServiceNumberGenerator
 import java.util.*
@@ -37,8 +38,9 @@ class ServiceHandler : IServiceHandler {
     }
 
     private fun handleAsyncPromise(progress: ParrotServiceBuilder, cloudService: ICloudService): ParrotService {
-        // TODO: handle here connection to manager
-        return createNewServiceInstance(progress, cloudService.getName())
+        val parrotService = createNewServiceInstance(progress, cloudService.getName())
+        sendCloudMessage("ParrotService ${parrotService.getName()}/${parrotService.getGroupName()} is now online on ${cloudService.getName()}")
+        return parrotService
     }
 
     private fun createNewServiceInstance(progress: ParrotServiceBuilder, cloudServiceName: String): ParrotService {
