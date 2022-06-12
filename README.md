@@ -56,7 +56,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 <br>
 
 ## Demoserver
-Du kannst dir auch gerne selber einen Überblick erschaffen, indem du dich auf dem Demoserver umschaust. Du kannst den Server mit der Adresse MrManHD.net betreten!
+Du kannst dir auch gerne selber einen Überblick erschaffen, indem du dich auf dem Demoserver umschaust. Du kannst den Server mit der Adresse ``MrManHD.net`` betreten!
 
 <br>
 <br>
