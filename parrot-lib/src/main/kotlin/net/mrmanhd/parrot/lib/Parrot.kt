@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.lib
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastClientHandler
 import net.mrmanhd.parrot.lib.hazelcast.HazelcastServerHandler
+import net.mrmanhd.parrot.lib.messagechannel.MessageChannelRegistry
 import net.mrmanhd.parrot.lib.repository.ParrotGroupRepository
 import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
 
@@ -19,12 +20,18 @@ class Parrot {
     val parrotServiceRepository = ParrotServiceRepository()
     val parrotGroupRepository = ParrotGroupRepository()
 
+    val messageChannelRegistry = MessageChannelRegistry()
+
     init {
         instance = this
         ParrotLib()
+
+        messageChannelRegistry.registerChannels()
+        messageChannelRegistry.registerListeners()
     }
 
     fun shutdown() {
+        this.messageChannelRegistry.unregisterChannels()
         this.hazelcastServerHandler.stopConnection()
         this.hazelcastClientHandler.stopConnection()
     }
