@@ -9,8 +9,4 @@ import net.mrmanhd.parrot.api.hazelcast.AbstractHazelcastHashMapRepository
 
 class ChatMessageRepository : AbstractHazelcastHashMapRepository<String, String>(
     "chatMessages"
-) {
-
-
-
-}
+)
