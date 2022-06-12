@@ -17,6 +17,7 @@ class ParrotReloadCommand : ICommandHandler {
 
     @CommandSubPath("reload")
     fun handle(sender: ICommandSender) {
+        sender.sendMessage(">> parrot reload config")
         sender.sendMessage(">> parrot reload groups")
         sender.sendMessage(">> parrot reload messages")
     }
@@ -31,6 +32,12 @@ class ParrotReloadCommand : ICommandHandler {
     fun handleExecuteMessages(sender: ICommandSender) {
         sender.sendMessage("Reloading all Messages!")
         CloudModule.instance.chatMessageHandler.updateChatMessages()
+    }
+
+    @CommandSubPath("reload config")
+    fun handleExecuteConfig(sender: ICommandSender) {
+        sender.sendMessage("Reloading Config!")
+        CloudModule.instance.configHandler.updateConfig()
     }
 
 }
