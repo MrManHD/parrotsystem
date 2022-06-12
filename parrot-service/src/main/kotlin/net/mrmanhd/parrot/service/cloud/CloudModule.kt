@@ -5,6 +5,7 @@ import eu.thesimplecloud.launcher.startup.Launcher
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.service.ParrotServiceCore
 import net.mrmanhd.parrot.service.cloud.command.*
+import net.mrmanhd.parrot.service.cloud.config.ConfigHandler
 import net.mrmanhd.parrot.service.cloud.group.GroupHandler
 import net.mrmanhd.parrot.service.cloud.message.ChatMessageHandler
 
@@ -17,6 +18,7 @@ class CloudModule : ICloudModule {
 
     val groupHandler = GroupHandler()
     val chatMessageHandler = ChatMessageHandler()
+    val configHandler = ConfigHandler()
 
     override fun isReloadable(): Boolean = false
 
@@ -27,6 +29,7 @@ class CloudModule : ICloudModule {
         Parrot.instance.hazelcastServerHandler.startConnection()
 
         this.groupHandler.loadGroups()
+        this.configHandler.loadConfig()
         this.chatMessageHandler.loadChatMessages()
 
         registerEvents()
