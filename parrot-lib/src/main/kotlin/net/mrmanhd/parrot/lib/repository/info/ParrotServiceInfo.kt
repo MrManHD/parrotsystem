@@ -6,6 +6,7 @@ import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.ParrotService
+import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
 import java.io.Serializable
 import java.util.UUID
 
@@ -27,6 +28,9 @@ class ParrotServiceInfo(
     var maxPlayers: Int,
     val propertyMap: HashMap<String, Any>
 ) : Serializable {
+
+    val gamePlayers = arrayListOf<GamePlayer>()
+    val preConnectedPlayers = arrayListOf<UUID>()
 
     var state = ServiceState.STARTING
 

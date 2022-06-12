@@ -78,7 +78,7 @@ interface IParrotService {
         return getGamePlayers().firstOrNull { it.getUniqueId() == uniqueId }
     }
 
-    fun updateGamePlayer(uniqueId: UUID, playerState: PlayerState): IGamePlayer
+    fun updateGamePlayer(uniqueId: UUID, playerState: PlayerState): IGamePlayer?
 
     fun isPlayerOnline(uniqueId: UUID): Boolean {
         return getGamePlayer(uniqueId) != null

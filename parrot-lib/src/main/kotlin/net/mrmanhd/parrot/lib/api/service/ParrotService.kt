@@ -7,6 +7,7 @@ import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
+import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
 import java.util.*
 
@@ -79,15 +80,22 @@ class ParrotService(
     }
 
     override fun getGamePlayers(): List<IGamePlayer> {
-        TODO("Not yet implemented")
+        return getInfo()?.gamePlayers ?: emptyList()
     }
 
-    override fun updateGamePlayer(uniqueId: UUID, playerState: PlayerState): IGamePlayer {
-        TODO("Not yet implemented")
+    override fun updateGamePlayer(uniqueId: UUID, playerState: PlayerState): IGamePlayer? {
+        val gamePlayer = getGamePlayer(uniqueId) ?: return null
+        val serviceInfo = getInfo() ?: return gamePlayer
+
+        val gamePlayerInstance = GamePlayer(uniqueId, gamePlayer.getName(), playerState, gamePlayer.createdAt())
+        serviceInfo.gamePlayers.removeIf { it.getUniqueId() == uniqueId }
+        serviceInfo.gamePlayers.add(gamePlayerInstance)
+        serviceInfo.update()
+        return gamePlayerInstance
     }
 
     override fun getPreConnectedPlayers(): List<UUID> {
-        TODO("Not yet implemented")
+        return getInfo()?.preConnectedPlayers ?: emptyList()
     }
 
     override fun getMaxPlayers(): Int {
@@ -122,6 +130,22 @@ class ParrotService(
 
     private fun getInfo(): ParrotServiceInfo? {
         return Parrot.instance.parrotServiceRepository.find(this.uniqueId)
+    }
+
+    fun addGamePlayer(uniqueId: UUID, name: String, playerState: PlayerState): GamePlayer {
+        val gamePlayerInstance = GamePlayer(uniqueId, name, playerState)
+        val serviceInfo = getInfo() ?: return gamePlayerInstance
+
+        serviceInfo.gamePlayers.removeIf { it.getUniqueId() == uniqueId }
+        serviceInfo.gamePlayers.add(gamePlayerInstance)
+        serviceInfo.update()
+        return gamePlayerInstance
+    }
+
+    fun removeGamePlayer(uniqueId: UUID) {
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.gamePlayers.removeIf { it.getUniqueId() == uniqueId }
+        serviceInfo.update()
     }
 
 }
