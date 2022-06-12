@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.lib.api.service.player
 
 import net.mrmanhd.parrot.api.service.player.IGamePlayer
 import net.mrmanhd.parrot.api.service.player.PlayerState
+import java.io.Serializable
 import java.util.*
 
 /**
@@ -14,7 +15,7 @@ class GamePlayer(
     private val name: String,
     private val playerState: PlayerState,
     private val createdAt: Long = System.currentTimeMillis()
-) : IGamePlayer {
+) : IGamePlayer, Serializable {
 
     override fun getUniqueId(): UUID = this.uniqueId
 
