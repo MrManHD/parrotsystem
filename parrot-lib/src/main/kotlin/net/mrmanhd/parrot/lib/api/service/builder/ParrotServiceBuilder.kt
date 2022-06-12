@@ -7,6 +7,7 @@ import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 import net.mrmanhd.parrot.lib.api.ParrotLib
+import net.mrmanhd.parrot.lib.api.service.ParrotServiceCreator
 import java.util.*
 
 /**
@@ -62,7 +63,7 @@ class ParrotServiceBuilder(
     }
 
     override fun startService(): ICommunicationPromise<IParrotService> {
-        return ParrotLib.instance.serviceHandler.startService(this)
+        return ParrotServiceCreator(this).start()
     }
 
     fun getCloudService(): ICloudService? {
