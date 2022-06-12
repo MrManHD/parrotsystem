@@ -8,6 +8,7 @@ import com.hazelcast.core.Hazelcast
 import com.hazelcast.core.HazelcastInstance
 import eu.thesimplecloud.api.CloudAPI
 import net.mrmanhd.parrot.api.ParrotApi
+import net.mrmanhd.parrot.lib.extension.writeMessage
 
 /**
  * Created by MrManHD
@@ -20,7 +21,7 @@ class HazelcastClientHandler {
 
     fun startConnection() {
         val wrapperHosts = CloudAPI.instance.getWrapperManager().getAllCachedObjects().map { it.getHost() }
-        println("Hazelcast Client connected to hosts: ${wrapperHosts.joinToString(", ")}")
+        writeMessage("Hazelcast Client connected to hosts: ${wrapperHosts.joinToString(", ")}")
 
         this.hazelcastInstance = HazelcastClient.newHazelcastClient(getClientConfig(wrapperHosts))
     }

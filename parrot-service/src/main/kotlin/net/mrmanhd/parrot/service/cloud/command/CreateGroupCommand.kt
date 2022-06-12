@@ -30,7 +30,7 @@ class CreateGroupCommand : ICommandHandler {
         val group = Group(groupName, listOf(), minimumOnlineServiceCount, maxOnlineServiceCount, false)
         CloudModule.instance.groupHandler.addGroup(group)
 
-        sender.sendMessage("ParrotGroup $groupName wurde erfolgreich erstellt!")
+        sender.sendMessage("ParrotGroup $groupName was created successfully!")
     }
 
 }

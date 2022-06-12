@@ -23,13 +23,13 @@ class ParrotReloadCommand : ICommandHandler {
 
     @CommandSubPath("reload groups")
     fun handleExecuteGroups(sender: ICommandSender) {
-        sender.sendMessage("Alle ParrotGroups werden neugeladen!")
+        sender.sendMessage("Reloading all ParrotGroups!")
         CloudModule.instance.groupHandler.updateGroups()
     }
 
     @CommandSubPath("reload messages")
     fun handleExecuteMessages(sender: ICommandSender) {
-        sender.sendMessage("Alle Nachrichten werden neugeladen!")
+        sender.sendMessage("Reloading all Messages!")
         CloudModule.instance.chatMessageHandler.updateChatMessages()
     }
 
