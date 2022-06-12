@@ -9,6 +9,7 @@ import org.bukkit.entity.Player
  */
 
 fun Player.sendChatMessage(key: String, vararg strings: String) {
+    val prefix = Parrot.instance.configRepository.getConfig().prefix
     val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
-    this.sendMessage(message)
+    this.sendMessage(prefix + message)
 }
