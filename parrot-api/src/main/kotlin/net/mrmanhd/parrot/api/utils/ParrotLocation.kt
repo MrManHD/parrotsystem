@@ -12,6 +12,6 @@ class ParrotLocation(
     val x: Double,
     val y: Double,
     val z: Double,
-    val float: Float,
+    val yaw: Float,
     val pitch: Float,
 ) : Serializable
