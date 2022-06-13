@@ -1,0 +1,12 @@
+name: parrotdaemon
+author: MrManHD
+version: 1.0.1
+api-version: 1.18
+depend:
+  - SimpleCloud-Plugin
+  - parrotservice
+loadbefore:
+  - SimpleCloud-Plugin
+  - parrotservice
+
+main: net.mrmanhd.parrot.daemon.plugin.SpigotPlugin
