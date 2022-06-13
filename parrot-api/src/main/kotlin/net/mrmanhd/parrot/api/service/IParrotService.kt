@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.api.service
 
 import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.service.ICloudService
+import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.player.IGamePlayer
 import net.mrmanhd.parrot.api.service.player.PlayerState
@@ -30,6 +31,11 @@ interface IParrotService {
     fun createdAt(): Long
 
     fun getSpawnLocation(): ParrotLocation
+
+
+    fun connectPlayer(uniqueId: UUID) {
+        ParrotApi.instance.getPlayerConnectorService().connectPlayerToService(uniqueId, this)
+    }
 
 
     fun getCloudServiceName(): String
