@@ -38,7 +38,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 ### Bedingungen
 Wenn du diese Bedingungen erfüllst, dann hab viel spaß mit dem ParrotSystem:
-* <a href="https://getbukkit.org/download/spigot">Spigot</a> oder <a href="https://papermc.io/downloads#Paper-1.18">Paper</a> 1.18
+* <a href="https://papermc.io/downloads#Paper-1.18">Paper</a> 1.18
 * <a href="https://github.com/Paul19988/Advanced-Slime-World-Manager">SlimeWorldManager</a>
 * Neuste Version von <a href="https://www.spigotmc.org/resources/simplecloud-simplify-your-network.79466/">SimpleCloud</a>
 
