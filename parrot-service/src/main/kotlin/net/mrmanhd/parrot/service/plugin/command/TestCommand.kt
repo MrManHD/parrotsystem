@@ -5,6 +5,7 @@ import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Default
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import net.mrmanhd.parrot.api.ParrotApi
+import net.mrmanhd.parrot.api.extension.connectToService
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -54,6 +55,12 @@ class TestCommand : BaseCommand() {
     fun executeMessages(sender: CommandSender) {
         sender as Player
         sender.sendChatMessage("test.test", sender.name)
+    }
+
+    @SubCommand("send")
+    fun executeSend(sender: CommandSender) {
+        sender as Player
+        sender.connectToService(ParrotApi.instance.getServiceHandler().getAllServices().random())
     }
 
 }
