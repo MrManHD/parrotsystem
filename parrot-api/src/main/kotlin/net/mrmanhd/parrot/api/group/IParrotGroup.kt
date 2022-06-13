@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.api.group
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 
 /**
  * Created by MrManHD
@@ -20,6 +21,8 @@ interface IParrotGroup {
     fun getMaxOnlineServiceCount(): Int
 
     fun isInMaintenance(): Boolean
+
+    fun getSpawnLocation(): ParrotLocation
 
     fun getAllServices(): List<IParrotService> {
         return ParrotApi.instance.getServiceHandler().getAllServicesByGroup(this)

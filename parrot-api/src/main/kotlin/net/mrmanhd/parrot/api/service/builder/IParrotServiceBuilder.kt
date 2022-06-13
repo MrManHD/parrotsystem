@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.api.service.builder
 import eu.thesimplecloud.api.service.ICloudService
 import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.service.IParrotService
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import java.util.UUID
 
 /**
@@ -13,6 +14,8 @@ import java.util.UUID
 interface IParrotServiceBuilder {
 
     fun withMaxPlayers(maxPlayers: Int): IParrotServiceBuilder
+
+    fun withSpawnLocation(spawnLocation: ParrotLocation): IParrotServiceBuilder
 
     fun withMotd(motd: String): IParrotServiceBuilder
 

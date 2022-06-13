@@ -1,6 +1,7 @@
 package net.mrmanhd.parrot.lib.api.group
 
 import net.mrmanhd.parrot.api.group.IParrotGroup
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import java.io.Serializable
 
 /**
@@ -13,7 +14,8 @@ class ParrotGroup(
     private val preLoadedWorlds: List<String>,
     private val minimumOnlineServiceCount: Int,
     private val maxOnlineServiceCount: Int,
-    private val maintenance: Boolean
+    private val maintenance: Boolean,
+    private val spawnLocation: ParrotLocation
 ) : IParrotGroup, Serializable {
 
     override fun getName(): String = this.name
@@ -25,5 +27,7 @@ class ParrotGroup(
     override fun getMaxOnlineServiceCount(): Int = this.maxOnlineServiceCount
 
     override fun isInMaintenance(): Boolean = this.maintenance
+
+    override fun getSpawnLocation(): ParrotLocation = this.spawnLocation
 
 }

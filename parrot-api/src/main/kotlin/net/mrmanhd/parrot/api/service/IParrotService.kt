@@ -6,6 +6,7 @@ import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.player.IGamePlayer
 import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import org.bukkit.Bukkit.getMaxPlayers
 import java.util.UUID
 
@@ -27,6 +28,8 @@ interface IParrotService {
     fun getName(): String
 
     fun createdAt(): Long
+
+    fun getSpawnLocation(): ParrotLocation
 
 
     fun getCloudServiceName(): String

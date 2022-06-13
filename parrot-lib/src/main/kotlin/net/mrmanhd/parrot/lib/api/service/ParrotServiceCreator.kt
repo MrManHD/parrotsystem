@@ -55,7 +55,8 @@ class ParrotServiceCreator(
             this.builder.isRemoveWhenServiceEmpty,
             this.builder.motd,
             this.builder.maxPlayers,
-            this.builder.propertyMap
+            this.builder.propertyMap,
+            this.builder.spawnLocation
         )
         parrotServiceInfo.update()
 

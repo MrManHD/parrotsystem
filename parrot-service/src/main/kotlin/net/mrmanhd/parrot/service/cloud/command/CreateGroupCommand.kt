@@ -4,6 +4,7 @@ import eu.thesimplecloud.api.command.ICommandSender
 import eu.thesimplecloud.launcher.console.command.CommandType
 import eu.thesimplecloud.launcher.console.command.ICommandHandler
 import eu.thesimplecloud.launcher.console.command.annotations.*
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.service.cloud.CloudModule
 import net.mrmanhd.parrot.service.cloud.group.Group
 
@@ -27,7 +28,8 @@ class CreateGroupCommand : ICommandHandler {
         @CommandArgument("minimumOnlineServiceCount") minimumOnlineServiceCount: Int,
         @CommandArgument("maxOnlineServiceCount") maxOnlineServiceCount: Int
     ) {
-        val group = Group(groupName, listOf(), minimumOnlineServiceCount, maxOnlineServiceCount, false)
+        val spawnLocation = ParrotLocation("world", 0.0, 100.0, 0.0, 0F, 0F)
+        val group = Group(groupName, listOf(), minimumOnlineServiceCount, maxOnlineServiceCount, false, spawnLocation)
         CloudModule.instance.groupHandler.addGroup(group)
 
         sender.sendMessage("ParrotGroup $groupName was created successfully!")

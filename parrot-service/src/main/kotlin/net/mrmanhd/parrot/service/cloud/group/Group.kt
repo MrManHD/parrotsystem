@@ -1,6 +1,7 @@
 package net.mrmanhd.parrot.service.cloud.group
 
 import eu.thesimplecloud.api.utils.Nameable
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.repository.info.ParrotGroupInfo
 
 /**
@@ -13,7 +14,8 @@ class Group(
     val preLoadedWorlds: List<String>,
     val minimumOnlineServiceCount: Int,
     val maxOnlineServiceCount: Int,
-    val maintenance: Boolean
+    val maintenance: Boolean,
+    val spawnLocation: ParrotLocation
 ) : Nameable {
 
     override fun getName(): String = this.groupName
@@ -24,7 +26,8 @@ class Group(
             this.preLoadedWorlds,
             this.minimumOnlineServiceCount,
             this.maxOnlineServiceCount,
-            this.maintenance
+            this.maintenance,
+            this.spawnLocation
         )
     }
 

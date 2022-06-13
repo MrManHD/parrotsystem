@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.lib.repository.info
 import eu.thesimplecloud.jsonlib.JsonLib
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.state.ServiceState
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
@@ -27,7 +28,8 @@ class ParrotServiceInfo(
     val removeWhenServiceEmpty: Boolean,
     var motd: String,
     var maxPlayers: Int,
-    val propertyMap: HashMap<String, Any>
+    val propertyMap: HashMap<String, Any>,
+    val spawnLocation: ParrotLocation
 ) : Serializable {
 
     val gamePlayers = arrayListOf<GamePlayer>()
@@ -48,6 +50,7 @@ class ParrotServiceInfo(
             this.privateService,
             this.removeWhenServiceEmpty,
             this.cloudServiceName,
+            this.spawnLocation,
             this.createdAt
         )
     }

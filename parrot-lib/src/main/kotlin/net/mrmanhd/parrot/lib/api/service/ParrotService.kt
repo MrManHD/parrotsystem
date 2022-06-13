@@ -5,6 +5,7 @@ import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.player.IGamePlayer
 import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
@@ -24,6 +25,7 @@ class ParrotService(
     private val privateService: Boolean,
     private val removeWhenServiceEmpty: Boolean,
     private val cloudServiceName: String,
+    private val spawnLocation: ParrotLocation,
     private val createdAt: Long = System.currentTimeMillis()
 ) : IParrotService {
 
@@ -34,6 +36,8 @@ class ParrotService(
     override fun getName(): String = this.name
 
     override fun createdAt(): Long = this.createdAt
+
+    override fun getSpawnLocation(): ParrotLocation = this.spawnLocation
 
     override fun getCloudServiceName(): String = this.cloudServiceName
 

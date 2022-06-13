@@ -6,6 +6,7 @@ import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.api.service.ParrotServiceCreator
 import java.util.*
@@ -26,9 +27,15 @@ class ParrotServiceBuilder(
     var propertyMap = hashMapOf<String, Any>()
     var owner: UUID? = null
     var isRemoveWhenServiceEmpty = false
+    var spawnLocation = parrotGroup.getSpawnLocation()
 
     override fun withMaxPlayers(maxPlayers: Int): IParrotServiceBuilder {
         this.maxPlayers = maxPlayers
+        return this
+    }
+
+    override fun withSpawnLocation(spawnLocation: ParrotLocation): IParrotServiceBuilder {
+        this.spawnLocation = spawnLocation
         return this
     }
 
