@@ -10,7 +10,7 @@ import java.text.MessageFormat
 
 class ChatMessageService {
 
-    fun getChatMessageByKey(key: String, vararg strings: String): String {
+    fun getChatMessageByKey(key: String, vararg strings: Any): String {
         val message = Parrot.instance.chatMessageRepository.find(key)
             ?: "Die Nachricht für den Key $key existiert nicht!"
         return MessageFormat.format(message, *strings)

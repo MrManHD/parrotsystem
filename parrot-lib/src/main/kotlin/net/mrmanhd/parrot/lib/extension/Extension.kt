@@ -11,7 +11,8 @@ import net.mrmanhd.parrot.lib.messagechannel.dto.CloudMessageDTO
  * Class create at 12.06.2022 13:46
  */
 
-fun sendCloudMessage(message: String, levelType: CloudMessageDTO.LevelType = CloudMessageDTO.LevelType.CONSOLE) {
+fun sendCloudMessage(key: String, vararg strings: Any, levelType: CloudMessageDTO.LevelType = CloudMessageDTO.LevelType.CONSOLE) {
+    val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
     val messageChannel = CloudAPI.instance.getMessageChannelManager()
         .getMessageChannelByName<CloudMessageDTO>("parrot-cloud-message") ?: return
     messageChannel.sendMessage(CloudMessageDTO(message, levelType), INetworkComponent.MANAGER_COMPONENT)
@@ -25,7 +26,7 @@ fun writeMessage(message: String) {
     }
 }
 
-fun sendMessage(key: String, vararg strings: String) {
+fun sendMessage(key: String, vararg strings: Any) {
     val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
     if (CloudAPI.instance.isManager()) {
         Launcher.instance.logger.console(message)

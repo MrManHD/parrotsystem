@@ -35,7 +35,7 @@ class ParrotServiceCreator(
 
     private fun handleAsyncPromise(cloudService: ICloudService): ParrotService {
         val parrotService = createNewServiceInstance(cloudService.getName())
-        sendCloudMessage("ParrotService ${parrotService.getName()}/${parrotService.getGroupName()} is now online on ${cloudService.getName()}")
+        sendCloudMessage("service.start.success", parrotService.getName(), parrotService.getGroupName(), cloudService.getName())
         sendStateMessageChannel(parrotService, cloudService)
         return parrotService
     }
@@ -74,11 +74,11 @@ class ParrotServiceCreator(
         this.builder.getCloudService()?.let { return it }
         val serviceGroup = Parrot.instance.configRepository.getConfig().getStartGroupNames().random()
         if (serviceGroup.getAllServices().none { it.hasServiceLoaded() }) {
-            sendCloudMessage("A ParrotService could not be started because no services are online!")
+            sendCloudMessage("service.start.failed.daemons.offline")
             return null
         }
         if (CloudAPI.instance.getGlobalPropertyHolder().hasProperty("parrot-disable-starting")) {
-            sendCloudMessage("A ParrotService could not be started because the start is deactivated!")
+            sendCloudMessage("service.start.failed.disable.starting")
             return null
         }
         return getCloudServiceWithMinimumParrotServices(serviceGroup)

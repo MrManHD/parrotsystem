@@ -20,7 +20,7 @@ class SpigotPlugin : JavaPlugin() {
             override fun run() {
                 val thisService = CloudPlugin.instance.thisService()
                 thisService.setProperty("service-finish", true)
-                sendCloudMessage("Service ${thisService.getName()} is now ready to use")
+                sendCloudMessage("service.daemon.ready.use", thisService.getName())
             }
         }.runTaskLater(this, 40)
     }
