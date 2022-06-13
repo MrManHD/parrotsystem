@@ -7,18 +7,35 @@ package net.mrmanhd.parrot.service.cloud.message.config
 
 object DefaultChatMessageConfig {
 
-    fun get(): ChatMessageConfig {
-        return ChatMessageConfig(
-            getMessages()
+    fun getGermanMessage(): ChatMessage {
+        return ChatMessage(
+            "de",
+            getGermanMessages()
         )
     }
 
-    private fun getMessages(): Map<String, String> {
+    fun getEnglishMessage(): ChatMessage {
+        return ChatMessage(
+            "en",
+            getEnglishMessages()
+        )
+    }
+
+    private fun getGermanMessages(): Map<String, String> {
         return hashMapOf(
             Pair("connector.failed.service.null", "§cEs gab gerade ein Problem beim verbinden des Servers! (#{0})"),
             Pair("connector.failed.round.ends", "§cDieses Spiel ist bereits beendet!"),
             Pair("connector.failed.round.full", "§cDieses Spiel ist bereits voll!"),
             Pair("connector.failed.round.connected", "§cDu bist bereits in diesem Spiel!")
+        )
+    }
+
+    private fun getEnglishMessages(): Map<String, String> {
+        return hashMapOf(
+            Pair("connector.failed.service.null", "§cThere was just a problem connecting the server! (#{0})"),
+            Pair("connector.failed.round.ends", "§cThis game is already finished!"),
+            Pair("connector.failed.round.full", "§cThis game is already full!"),
+            Pair("connector.failed.round.connected", "§cYou are already in this game!")
         )
     }
 

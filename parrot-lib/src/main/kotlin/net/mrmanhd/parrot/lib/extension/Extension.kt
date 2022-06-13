@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.lib.extension
 import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.network.component.INetworkComponent
 import eu.thesimplecloud.launcher.startup.Launcher
+import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.messagechannel.dto.CloudMessageDTO
 
 /**
@@ -17,6 +18,15 @@ fun sendCloudMessage(message: String, levelType: CloudMessageDTO.LevelType = Clo
 }
 
 fun writeMessage(message: String) {
+    if (CloudAPI.instance.isManager()) {
+        Launcher.instance.logger.console(message)
+    } else {
+        println(message)
+    }
+}
+
+fun sendMessage(key: String, vararg strings: String) {
+    val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
     if (CloudAPI.instance.isManager()) {
         Launcher.instance.logger.console(message)
     } else {

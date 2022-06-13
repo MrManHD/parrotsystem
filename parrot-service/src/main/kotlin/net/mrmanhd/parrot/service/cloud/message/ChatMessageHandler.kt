@@ -12,8 +12,13 @@ class ChatMessageHandler {
     private val repository by lazy { Parrot.instance.chatMessageRepository }
 
     fun loadChatMessages() {
-        val config = ChatMessageLoader().loadConfig()
-        config.messages.forEach { (key, value) -> this.repository.insert(key, value) }
+        val config = Parrot.instance.configRepository.getConfig()
+        val chatMessage = ChatMessageLoader().loadAll().firstOrNull { it.languageName == config.language }
+        if (chatMessage == null) {
+            println("Cannot find language ${config.language}")
+            return
+        }
+        chatMessage.messages.forEach { (key, value) -> this.repository.insert(key, value) }
     }
 
     fun updateChatMessages() {

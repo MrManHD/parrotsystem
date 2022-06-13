@@ -1,7 +1,8 @@
 package net.mrmanhd.parrot.service.cloud.message
 
-import eu.thesimplecloud.api.config.AbstractJsonLibConfigLoader
-import net.mrmanhd.parrot.service.cloud.message.config.ChatMessageConfig
+import eu.thesimplecloud.api.config.AbstractMultipleConfigLoader
+import net.mrmanhd.parrot.service.cloud.group.Group
+import net.mrmanhd.parrot.service.cloud.message.config.ChatMessage
 import net.mrmanhd.parrot.service.cloud.message.config.DefaultChatMessageConfig
 import java.io.File
 
@@ -10,9 +11,9 @@ import java.io.File
  * Class create at 12.06.2022 20:03
  */
 
-class ChatMessageLoader : AbstractJsonLibConfigLoader<ChatMessageConfig>(
-    ChatMessageConfig::class.java,
-    File("modules/parrot/messages.json"),
-    { DefaultChatMessageConfig.get() },
-    true,
+class ChatMessageLoader : AbstractMultipleConfigLoader<ChatMessage>(
+    ChatMessage::class.java,
+    File("modules/parrot/languages"),
+    listOf(DefaultChatMessageConfig.getGermanMessage(), DefaultChatMessageConfig.getEnglishMessage()),
+    true
 )

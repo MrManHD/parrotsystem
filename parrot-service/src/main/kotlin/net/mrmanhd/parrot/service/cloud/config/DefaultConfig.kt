@@ -5,6 +5,7 @@ object DefaultConfig {
     fun get(): Config {
         return Config(
             "§8[§6Parrot§8]§7 ",
+            "en",
             arrayListOf("daemon")
         )
     }

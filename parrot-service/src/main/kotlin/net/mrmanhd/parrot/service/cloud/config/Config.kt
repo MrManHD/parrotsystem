@@ -9,11 +9,12 @@ import net.mrmanhd.parrot.lib.repository.info.ConfigInfo
 
 class Config(
     val prefix: String,
+    val language: String,
     val startGroupNames: List<String>
 ) {
 
     fun convertToConfigInfo(): ConfigInfo {
-        return ConfigInfo(this.prefix, this.startGroupNames)
+        return ConfigInfo(this.prefix, this.language, this.startGroupNames)
     }
 
 }

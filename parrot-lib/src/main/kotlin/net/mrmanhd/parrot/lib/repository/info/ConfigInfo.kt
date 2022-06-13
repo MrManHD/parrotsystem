@@ -11,6 +11,7 @@ import java.io.Serializable
 
 class ConfigInfo(
     val prefix: String,
+    val language: String,
     private val startGroupNames: List<String>
 ) : Serializable {
 
