@@ -8,6 +8,7 @@ import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.service.ParrotService
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import net.mrmanhd.parrot.lib.extension.sendCloudMessage
+import net.mrmanhd.parrot.lib.extension.sendMessage
 import net.mrmanhd.parrot.lib.extension.writeMessage
 import net.mrmanhd.parrot.lib.messagechannel.dto.PlayerConnectorDTO
 import java.util.*
@@ -23,7 +24,7 @@ class PlayerConnectorService : IPlayerConnectorService {
     override fun connectPlayerToService(uniqueId: UUID, parrotService: IParrotService) {
         CloudAPI.instance.getCloudPlayerManager().getCloudPlayer(uniqueId)
             .addResultListener { handleCloudPlayerConnection(it, parrotService as ParrotService) }
-            .addFailureListener { writeMessage("[Parrot] Cannot connect player $uniqueId to ParrotService ${parrotService.getName()}") }
+            .addFailureListener { sendMessage("connector.failed.player.doesnt.exist", uniqueId, parrotService.getName()) }
     }
 
     private fun handleCloudPlayerConnection(cloudPlayer: ICloudPlayer, parrotService: ParrotService) {

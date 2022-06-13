@@ -5,6 +5,7 @@ import eu.thesimplecloud.launcher.console.command.CommandType
 import eu.thesimplecloud.launcher.console.command.ICommandHandler
 import eu.thesimplecloud.launcher.console.command.annotations.Command
 import eu.thesimplecloud.launcher.console.command.annotations.CommandSubPath
+import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import net.mrmanhd.parrot.service.cloud.CloudModule
 
 /**
@@ -24,19 +25,19 @@ class ParrotReloadCommand : ICommandHandler {
 
     @CommandSubPath("reload groups")
     fun handleExecuteGroups(sender: ICommandSender) {
-        sender.sendMessage("Reloading all ParrotGroups!")
+        sender.sendChatMessage("command.reload.group")
         CloudModule.instance.groupHandler.updateGroups()
     }
 
     @CommandSubPath("reload messages")
     fun handleExecuteMessages(sender: ICommandSender) {
-        sender.sendMessage("Reloading all Messages!")
+        sender.sendChatMessage("command.reload.messages")
         CloudModule.instance.chatMessageHandler.updateChatMessages()
     }
 
     @CommandSubPath("reload config")
     fun handleExecuteConfig(sender: ICommandSender) {
-        sender.sendMessage("Reloading Config!")
+        sender.sendChatMessage("command.reload.config")
         CloudModule.instance.configHandler.updateConfig()
     }
 

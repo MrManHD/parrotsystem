@@ -1,5 +1,6 @@
 package net.mrmanhd.parrot.lib.extension
 
+import eu.thesimplecloud.api.command.ICommandSender
 import eu.thesimplecloud.api.player.ICloudPlayer
 import eu.thesimplecloud.api.service.ICloudService
 import net.mrmanhd.parrot.lib.Parrot
@@ -10,6 +11,12 @@ import net.mrmanhd.parrot.lib.Parrot
  */
 
 fun ICloudPlayer.sendChatMessage(key: String, vararg strings: String) {
+    val prefix = Parrot.instance.configRepository.getConfig().prefix
+    val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
+    this.sendMessage(prefix + message)
+}
+
+fun ICommandSender.sendChatMessage(key: String, vararg strings: String) {
     val prefix = Parrot.instance.configRepository.getConfig().prefix
     val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
     this.sendMessage(prefix + message)

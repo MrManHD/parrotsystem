@@ -4,6 +4,7 @@ import net.mrmanhd.parrot.api.extension.getBukkitGamePlayers
 import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.api.service.ParrotService
+import net.mrmanhd.parrot.lib.extension.sendMessage
 import net.mrmanhd.parrot.lib.extension.writeMessage
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
@@ -20,11 +21,11 @@ abstract class AbstractDefaultPlayerConnector(
 
     fun handlePlayerAdd(player: Player) {
         if (this.parrotService.isPlayerOnline(player.uniqueId)) {
-            writeMessage("[Parrot] Player ${player.name}/${player.uniqueId} is already in ParrotService ${parrotService.getName()}")
+            sendMessage("connector.failed.player.already.connected", player.name, player.uniqueId, this.parrotService.getName())
             return
         }
 
-        writeMessage("[Parrot] Connecting Player ${player.name}/${player.uniqueId} to ParrotService ${parrotService.getName()}")
+        sendMessage("connector.starting", player.name, player.uniqueId, this.parrotService.getName(), this.parrotService.getGroupName())
 
         when (this.parrotService.getState()) {
             ServiceState.INGAME -> this.parrotService.addGamePlayer(player.uniqueId, player.name, PlayerState.SPECTATOR)
