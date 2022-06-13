@@ -4,7 +4,6 @@ import dev.triumphteam.cmd.core.BaseCommand
 import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Default
 import dev.triumphteam.cmd.core.annotation.SubCommand
-import eu.thesimplecloud.plugin.extension.getCloudPlayer
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import org.bukkit.command.CommandSender
@@ -25,7 +24,7 @@ class TestCommand : BaseCommand() {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName("bedwars")!!
         ParrotApi.instance.getServiceHandler().createService(parrotGroup)
             .withMaxPlayers(200)
-            .withCloudService(sender.getCloudPlayer().getConnectedServer()!!)
+           //TODO: .withCloudService(sender.getCloudPlayer().getConnectedServer()!!)
             .startService()
                 .addResultListener { sender.sendMessage("server ${it.getName()} startet") }
                 .addFailureListener { sender.sendMessage("failed: ${it.message}") }
