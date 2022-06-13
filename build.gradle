@@ -61,7 +61,7 @@ subprojects {
         compileOnly group: 'net.kyori', name: 'adventure-api', version: '4.10.1'
 
         compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-api:2.3.0'
-        compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-plugin:2.3.0'
+        compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-plugin:2.2.0'
         compileOnly 'eu.thesimplecloud.simplecloud:simplecloud-module-permission:2.3.0'
         compileOnly 'eu.thesimplecloud.jsonlib:json-lib:1.0.9'
 
