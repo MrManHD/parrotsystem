@@ -43,21 +43,19 @@ abstract class AbstractDefaultPlayerConnector(
         val plugin = Bukkit.getPluginManager().plugins.firstOrNull()!!
         val list = this.parrotService.getBukkitGamePlayers()
 
-        hidePlayers(player, Bukkit.getOnlinePlayers().filter { it.name != player.name }.filter { !list.contains(it) })
-
-        object : BukkitRunnable() {
-            override fun run() {
-                hidePlayers(player, list)
-            }
-        }.runTaskLater(plugin, 3)
-    }
-
-    private fun hidePlayers(player: Player, list: List<Player>) {
-        val plugin = Bukkit.getPluginManager().plugins.firstOrNull()!!
-        list.forEach {
+        Bukkit.getOnlinePlayers().filter { it.name != player.name }.filter { !list.contains(it) }.forEach {
             player.hidePlayer(plugin, it)
             it.hidePlayer(plugin, player)
         }
+
+        object : BukkitRunnable() {
+            override fun run() {
+                list.forEach {
+                    player.showPlayer(plugin, it)
+                    it.showPlayer(plugin, player)
+                }
+            }
+        }.runTaskLater(plugin, 3)
     }
 
 }
