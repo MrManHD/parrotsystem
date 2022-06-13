@@ -1,6 +1,10 @@
 package net.mrmanhd.parrot.lib.extension
 
+import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.Parrot
+import net.mrmanhd.parrot.lib.api.service.ParrotService
+import org.bukkit.Bukkit
+import org.bukkit.Location
 import org.bukkit.entity.Player
 
 /**
@@ -12,4 +16,15 @@ fun Player.sendChatMessage(key: String, vararg strings: String) {
     val prefix = Parrot.instance.configRepository.getConfig().prefix
     val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
     this.sendMessage(prefix + message)
+}
+
+fun ParrotLocation.asLocation(): Location {
+    return Location(
+        Bukkit.getWorld(this.worldName)!!,
+        this.x,
+        this.y,
+        this.z,
+        this.yaw,
+        this.pitch
+    )
 }
