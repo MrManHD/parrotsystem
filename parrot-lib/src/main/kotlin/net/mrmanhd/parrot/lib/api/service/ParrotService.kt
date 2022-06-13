@@ -160,7 +160,7 @@ class ParrotService(
 
     fun removePreConnectedPlayer(uniqueId: UUID) {
         val serviceInfo = getInfo() ?: return
-        serviceInfo.preConnectedPlayers.add(uniqueId)
+        serviceInfo.preConnectedPlayers.remove(uniqueId)
         serviceInfo.update()
     }
 
