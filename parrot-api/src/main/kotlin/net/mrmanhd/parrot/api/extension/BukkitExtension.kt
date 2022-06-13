@@ -14,6 +14,10 @@ fun Player.getParrotService(): IParrotService? {
     return ParrotApi.instance.getServiceHandler().getServiceByPlayer(this.uniqueId)
 }
 
+fun Player.connectToService(parrotService: IParrotService) {
+    parrotService.connectPlayer(this.uniqueId)
+}
+
 fun IParrotService.getBukkitGamePlayers(): List<Player> {
     return this.getGamePlayers().mapNotNull { Bukkit.getPlayer(it.getUniqueId()) }
 }
