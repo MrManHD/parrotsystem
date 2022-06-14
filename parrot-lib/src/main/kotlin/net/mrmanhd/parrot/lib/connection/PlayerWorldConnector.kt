@@ -41,7 +41,6 @@ class PlayerWorldConnector(
 
     private fun removeOldConnection() {
         if (this.connectedParrotService != null) {
-            debugMessage("debug.gameplayer.delete", this.cloudPlayer.getName(), this.connectedParrotService.getName())
             this.connectedParrotService.removeGamePlayer(this.cloudPlayer.getUniqueId())
         } else {
             debugMessage("debug.gameplayer.delete.failed", this.cloudPlayer.getName())

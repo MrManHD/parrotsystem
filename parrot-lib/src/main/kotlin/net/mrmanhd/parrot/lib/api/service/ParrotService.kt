@@ -151,6 +151,7 @@ class ParrotService(
 
     fun removeGamePlayer(uniqueId: UUID) {
         val serviceInfo = getInfo() ?: return
+        debugMessage("debug.gameplayer.delete", getGamePlayer(uniqueId)?.getName() ?: uniqueId, getName())
         serviceInfo.gamePlayers.removeIf { it.getUniqueId() == uniqueId }
         serviceInfo.update()
     }

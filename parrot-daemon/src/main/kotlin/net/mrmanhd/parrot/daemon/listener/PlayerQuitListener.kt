@@ -22,8 +22,6 @@ class PlayerQuitListener : Listener {
         parrotService.removePreConnectedPlayer(player.uniqueId)
         parrotService.removeGamePlayer(player.uniqueId)
 
-        debugMessage("debug.gameplayer.delete", player.name, parrotService.getName())
-
         event.quitMessage(null)
     }
 
