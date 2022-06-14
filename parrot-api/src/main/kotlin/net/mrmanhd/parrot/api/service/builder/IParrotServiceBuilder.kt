@@ -22,6 +22,8 @@ interface IParrotServiceBuilder {
 
     fun withVariant(variant: Variant): IParrotServiceBuilder
 
+    fun withMaxPlayersVariant(): IParrotServiceBuilder
+
     fun withPrivateService(): IParrotServiceBuilder
 
     fun withCloudService(cloudService: ICloudService): IParrotServiceBuilder

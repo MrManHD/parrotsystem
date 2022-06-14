@@ -51,6 +51,11 @@ class ParrotServiceBuilder(
         return this
     }
 
+    override fun withMaxPlayersVariant(): IParrotServiceBuilder {
+        this.variant?.let { withMaxPlayers(it.playersPerTeam * it.teams) }
+        return this
+    }
+
     override fun withPrivateService(): IParrotServiceBuilder {
         this.isPrivateService = true
         return this
