@@ -53,7 +53,7 @@ class PlayerConnectorService : IPlayerConnectorService {
         }, 3, TimeUnit.SECONDS)
 
         sendMessageChannelToService(cloudPlayer, parrotService)
-        sendCloudMessage("connector.succsess", cloudPlayer.getName(), cloudPlayer.getUniqueId(), parrotService.getName(), parrotService.getGroupName())
+        sendCloudMessage("connector.success", cloudPlayer.getName(), cloudPlayer.getUniqueId(), parrotService.getName(), parrotService.getGroupName())
     }
 
     private fun sendMessageChannelToService(cloudPlayer: ICloudPlayer, parrotService: IParrotService) {
