@@ -6,6 +6,7 @@ import dev.triumphteam.cmd.core.annotation.Default
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.extension.connectToService
+import net.mrmanhd.parrot.api.utils.Variant
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -24,8 +25,9 @@ class TestCommand : BaseCommand() {
 
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName("bedwars")!!
         ParrotApi.instance.getServiceHandler().createService(parrotGroup)
-            .withMaxPlayers(200)
-            .withProperty("test123", 456)
+            .withVariant(Variant.fromString("2x5"))
+            .withMaxPlayersVariant()
+            .withProperty("spectator", true)
             .startService()
                 .addResultListener { sender.sendMessage("server ${it.getName()} startet") }
                 .addFailureListener { sender.sendMessage("failed: ${it.message}") }
