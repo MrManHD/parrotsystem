@@ -5,7 +5,6 @@ import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.api.service.ParrotService
 import net.mrmanhd.parrot.lib.extension.sendMessage
-import net.mrmanhd.parrot.lib.extension.writeMessage
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.scheduler.BukkitRunnable
@@ -33,7 +32,7 @@ abstract class AbstractDefaultPlayerConnector(
         }
 
         player.inventory.clear()
-        player.inventory.armorContents = null
+        player.inventory.armorContents = emptyArray()
 
         player.health = 20.0
         player.foodLevel = 20
