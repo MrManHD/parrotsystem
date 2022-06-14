@@ -17,9 +17,8 @@ fun ICloudPlayer.sendChatMessage(key: String, vararg strings: String) {
 }
 
 fun ICommandSender.sendChatMessage(key: String, vararg strings: String) {
-    val prefix = Parrot.instance.configRepository.getConfig().prefix
     val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
-    this.sendMessage(prefix + message)
+    this.sendMessage(message)
 }
 
 fun ICloudService.hasServiceLoaded(): Boolean {
