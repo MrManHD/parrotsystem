@@ -9,6 +9,7 @@ import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
+import net.mrmanhd.parrot.lib.extension.debugMessage
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
 import java.util.*
 
@@ -95,6 +96,8 @@ class ParrotService(
         serviceInfo.gamePlayers.removeIf { it.getUniqueId() == uniqueId }
         serviceInfo.gamePlayers.add(gamePlayerInstance)
         serviceInfo.update()
+
+        debugMessage("debug.gameplayer.update", gamePlayer.getName())
         return gamePlayerInstance
     }
 

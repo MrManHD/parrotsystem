@@ -4,6 +4,7 @@ import eu.thesimplecloud.api.player.ICloudPlayer
 import eu.thesimplecloud.plugin.extension.syncBukkit
 import net.mrmanhd.parrot.lib.api.service.ParrotService
 import net.mrmanhd.parrot.lib.extension.asLocation
+import net.mrmanhd.parrot.lib.extension.debugMessage
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import org.bukkit.Bukkit
 
@@ -40,7 +41,10 @@ class PlayerWorldConnector(
 
     private fun removeOldConnection() {
         if (this.connectedParrotService != null) {
+            debugMessage("debug.gameplayer.delete", this.cloudPlayer.getName(), this.connectedParrotService.getName())
             this.connectedParrotService.removeGamePlayer(this.cloudPlayer.getUniqueId())
+        } else {
+            debugMessage("debug.gameplayer.delete.failed", this.cloudPlayer.getName())
         }
     }
 

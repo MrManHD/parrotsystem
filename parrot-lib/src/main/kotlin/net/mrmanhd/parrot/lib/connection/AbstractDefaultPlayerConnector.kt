@@ -4,6 +4,7 @@ import net.mrmanhd.parrot.api.extension.getBukkitGamePlayers
 import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.lib.api.service.ParrotService
+import net.mrmanhd.parrot.lib.extension.debugMessage
 import net.mrmanhd.parrot.lib.extension.sendMessage
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
@@ -30,6 +31,8 @@ abstract class AbstractDefaultPlayerConnector(
             ServiceState.INGAME -> this.parrotService.addGamePlayer(player.uniqueId, player.name, PlayerState.SPECTATOR)
             else -> this.parrotService.addGamePlayer(player.uniqueId, player.name, PlayerState.LOBBY)
         }
+
+        debugMessage("debug.gameplayer.create", player.name, parrotService.getName())
 
         player.inventory.clear()
         player.inventory.armorContents = emptyArray()

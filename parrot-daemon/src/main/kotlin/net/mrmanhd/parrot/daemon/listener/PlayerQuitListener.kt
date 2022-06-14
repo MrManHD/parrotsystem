@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.daemon.listener
 
 import net.mrmanhd.parrot.api.extension.getParrotService
 import net.mrmanhd.parrot.lib.api.service.ParrotService
+import net.mrmanhd.parrot.lib.extension.debugMessage
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerQuitEvent
@@ -20,6 +21,8 @@ class PlayerQuitListener : Listener {
 
         parrotService.removePreConnectedPlayer(player.uniqueId)
         parrotService.removeGamePlayer(player.uniqueId)
+
+        debugMessage("debug.gameplayer.delete", player.name, parrotService.getName())
 
         event.quitMessage(null)
     }

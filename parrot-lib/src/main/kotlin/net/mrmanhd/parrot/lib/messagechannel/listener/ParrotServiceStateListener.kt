@@ -7,7 +7,9 @@ import net.kyori.adventure.text.Component
 import net.mrmanhd.parrot.api.extension.getBukkitGamePlayers
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.lib.api.ParrotLib
+import net.mrmanhd.parrot.lib.extension.debugMessage
 import net.mrmanhd.parrot.lib.extension.sendCloudMessage
+import net.mrmanhd.parrot.lib.extension.sendMessage
 import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
 import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO.*
 import org.bukkit.scheduler.BukkitRunnable
@@ -29,11 +31,17 @@ class ParrotServiceStateListener : IMessageListener<ParrotServiceStateDTO> {
     }
 
     private fun handleStarting(parrotService: IParrotService) {
+        sendMessage("service.daemon.start.new.service", parrotService.getName(), parrotService.getGroupName())
+        debugMessage("debug.daemon.start.new.service", parrotService.getName())
+
         val localServiceHandler = ParrotLib.instance.localServiceHandler
         localServiceHandler.addLocalService(parrotService)
     }
 
     private fun handleStopping(parrotService: IParrotService) {
+        sendMessage("service.daemon.stop.service", parrotService.getName(), parrotService.getGroupName())
+        debugMessage("debug.daemon.stop.service", parrotService.getName())
+
         val localServiceHandler = ParrotLib.instance.localServiceHandler
         localServiceHandler.removeLocalService(parrotService)
 

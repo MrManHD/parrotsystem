@@ -35,6 +35,8 @@ object DefaultChatMessageConfig {
             Pair("service.start.failed.daemons.offline", "Ein ParrotService konnte nicht gestartet werden, weil keine Services online sind!"),
             Pair("service.start.failed.disable.starting", "Ein ParrotService konnte nicht gestartet werden, weil der Start deaktiviert ist!"),
             Pair("service.daemon.ready.use", "Service {0} ist jetzt einsatzbereit"),
+            Pair("service.daemon.start.new.service", "[Parrot] ParrotService {0}/{1} wurde gestartet!"),
+            Pair("service.daemon.stop.service", "[Parrot] ParrotService {0}/{1} wurde gestoppt!"),
             Pair("command.setup.create.group.success", "ParrotGroup {0} was created successfully!"),
             Pair("command.reload.groups", "Lade alle ParrotGroups neu!"),
             Pair("command.reload.messages", "Lade alle Nachrichten neu!"),
@@ -42,6 +44,12 @@ object DefaultChatMessageConfig {
             Pair("command.start.failed.group", "Die ParrotGroup mit dem Namen {0} existiert nicht!"),
             Pair("command.start.failed.cloudService", "Der Service mit dem Namen {0} existiert nicht!"),
             Pair("command.start.success", "Der ParrotService {0} wird nun gestartet"),
+            Pair("debug.gameplayer.create", "GamePlayer §6{0}§7 wird erstellt für §6{1}"),
+            Pair("debug.gameplayer.delete", "GamePlayer §6{0}§7 wird von §6{1}§7 gelöscht"),
+            Pair("debug.gameplayer.delete.failed", "GamePlayer §6{0}§7 konnte nicht gelöscht werden"),
+            Pair("debug.gameplayer.update", "GamePlayer §6{0}§7 wurde aktualisiert"),
+            Pair("debug.daemon.start.new.service", "Ein neuer ParrotService wird estellt §6{0}"),
+            Pair("debug.daemon.stop.service", "Der ParrotService §6{0}§7 wird gestoppt"),
         )
     }
 
@@ -59,6 +67,8 @@ object DefaultChatMessageConfig {
             Pair("service.start.failed.daemons.offline", "A ParrotService could not be started because no services are online!"),
             Pair("service.start.failed.disable.starting", "A ParrotService could not be started because the start is deactivated!"),
             Pair("service.daemon.ready.use", "Service {0} is now ready to use"),
+            Pair("service.daemon.start.new.service", "[Parrot] ParrotService {0}/{1} is started!"),
+            Pair("service.daemon.stop.service", "[Parrot] ParrotService {0}/{1} is now offline!"),
             Pair("command.setup.create.group.success", "ParrotGroup {0} was created successfully!"),
             Pair("command.reload.groups", "Reloading all ParrotGroups!"),
             Pair("command.reload.messages", "Reloading all messages!"),
@@ -66,6 +76,12 @@ object DefaultChatMessageConfig {
             Pair("command.start.failed.group", "The ParrotGroup with name {0} does not exist!"),
             Pair("command.start.failed.cloudService", "The service with name {0} does not exist!"),
             Pair("command.start.success", "The ParrotService {0} is now started"),
+            Pair("debug.gameplayer.create", "GamePlayer §6{0}§7 is created for §6{1}"),
+            Pair("debug.gameplayer.delete", "GamePlayer §6{0}§7 is deleted from §6{1}"),
+            Pair("debug.gameplayer.delete.failed", "GamePlayer §6{0}§7 could not be deleted"),
+            Pair("debug.gameplayer.update", "GamePlayer §6{0}§7 was updated"),
+            Pair("debug.daemon.start.new.service", "A new ParrotService is created §6{0}"),
+            Pair("debug.daemon.stop.service", "The ParrotService §6{0}§7 is stopped"),
         )
     }
 
