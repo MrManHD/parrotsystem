@@ -16,6 +16,9 @@ class ParrotCommand : ICommandHandler {
 
     @CommandSubPath
     fun handleExecute(sender: ICommandSender) {
+        sender.sendMessage(">> parrot start <GroupName>")
+        sender.sendMessage(">> parrot start <GroupName> <ServiceName>")
+        sender.sendMessage(">> parrot start <GroupName> <ServiceName> <isPrivate>")
         sender.sendMessage(">> parrot list")
         sender.sendMessage(">> parrot reload config")
         sender.sendMessage(">> parrot reload groups")
