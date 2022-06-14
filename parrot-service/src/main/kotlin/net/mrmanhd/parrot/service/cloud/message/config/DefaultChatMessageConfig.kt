@@ -30,15 +30,18 @@ object DefaultChatMessageConfig {
             Pair("connector.failed.player.doesnt.exist", "[Parrot] Verbindung zwischen Spieler {0} und ParrotService {1} ist nicht möglich!"),
             Pair("connector.failed.player.already.connected", "[Parrot] Spieler {0}/{1} ist bereits verbunden mit dem ParrotService {2}"),
             Pair("connector.starting", "[Parrot] Verbinde Spieler {0}/{1} mit ParrotService {2}/{3}"),
-            Pair("connector.succsess", "Spieler {0}/{1} wurde mit ParrotService {2}/{3} verbinden"),
+            Pair("connector.success", "Spieler {0}/{1} wurde mit ParrotService {2}/{3} verbinden"),
             Pair("service.start.success", "ParrotService {0}/{1} ist nun online auf {2}"),
             Pair("service.start.failed.daemons.offline", "Ein ParrotService konnte nicht gestartet werden, weil keine Services online sind!"),
             Pair("service.start.failed.disable.starting", "Ein ParrotService konnte nicht gestartet werden, weil der Start deaktiviert ist!"),
             Pair("service.daemon.ready.use", "Service {0} ist jetzt einsatzbereit"),
-            Pair("command.setup.create.group.succsess", "ParrotGroup {0} was created successfully!"),
+            Pair("command.setup.create.group.success", "ParrotGroup {0} was created successfully!"),
             Pair("command.reload.groups", "Lade alle ParrotGroups neu!"),
             Pair("command.reload.messages", "Lade alle Nachrichten neu!"),
             Pair("command.reload.config", "Lade Config neu!"),
+            Pair("command.start.failed.group", "Die ParrotGroup mit dem Namen {0} existiert nicht!"),
+            Pair("command.start.failed.cloudService", "Der Service mit dem Namen {0} existiert nicht!"),
+            Pair("command.start.success", "Der ParrotService {0} wird nun gestartet"),
         )
     }
 
@@ -51,15 +54,18 @@ object DefaultChatMessageConfig {
             Pair("connector.failed.player.doesnt.exist", "[Parrot] Cannot connect player {0} to ParrotService {1}"),
             Pair("connector.failed.player.already.connected", "[Parrot] Player {0}/{1} is already in ParrotService {2}"),
             Pair("connector.starting", "[Parrot] Connecting player {0}/{1} to ParrotService {2}/{3}"),
-            Pair("connector.succsess", "Connect player {0}/{1} to ParrotService {2}/{3}"),
+            Pair("connector.success", "Connect player {0}/{1} to ParrotService {2}/{3}"),
             Pair("service.start.success", "ParrotService {0}/{1} is now online on {2}"),
             Pair("service.start.failed.daemons.offline", "A ParrotService could not be started because no services are online!"),
             Pair("service.start.failed.disable.starting", "A ParrotService could not be started because the start is deactivated!"),
             Pair("service.daemon.ready.use", "Service {0} is now ready to use"),
-            Pair("command.setup.create.group.succsess", "ParrotGroup {0} was created successfully!"),
+            Pair("command.setup.create.group.success", "ParrotGroup {0} was created successfully!"),
             Pair("command.reload.groups", "Reloading all ParrotGroups!"),
             Pair("command.reload.messages", "Reloading all messages!"),
-            Pair("command.reload.config", "Reloading Config!")
+            Pair("command.reload.config", "Reloading Config!"),
+            Pair("command.start.failed.group", "The ParrotGroup with name {0} does not exist!"),
+            Pair("command.start.failed.cloudService", "The service with name {0} does not exist!"),
+            Pair("command.start.success", "The ParrotService {0} is now started"),
         )
     }
 

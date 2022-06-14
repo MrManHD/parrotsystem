@@ -33,7 +33,7 @@ class CreateGroupCommand : ICommandHandler {
         val group = Group(groupName, listOf(), minimumOnlineServiceCount, maxOnlineServiceCount, false, spawnLocation)
         CloudModule.instance.groupHandler.addGroup(group)
 
-        sender.sendChatMessage("command.setup.create.group.succsess", groupName)
+        sender.sendChatMessage("command.setup.create.group.success", groupName)
     }
 
 }
