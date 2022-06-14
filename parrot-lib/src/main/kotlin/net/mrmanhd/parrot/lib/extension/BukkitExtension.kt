@@ -30,5 +30,5 @@ fun ParrotLocation.asLocation(): Location {
 
 fun debugMessage(key: String, vararg strings: Any) {
     Bukkit.getOnlinePlayers().filter { it.hasPermission("*") }
-        .forEach { it.sendChatMessage(key, strings) }
+        .forEach { it.sendChatMessage(key, *strings) }
 }
