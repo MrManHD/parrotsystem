@@ -7,6 +7,7 @@ import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 import net.mrmanhd.parrot.api.utils.ParrotLocation
+import net.mrmanhd.parrot.api.utils.Variant
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.api.service.ParrotServiceCreator
 import java.util.*
@@ -28,6 +29,7 @@ class ParrotServiceBuilder(
     var owner: UUID? = null
     var isRemoveWhenServiceEmpty = false
     var spawnLocation = parrotGroup.getSpawnLocation()
+    var variant: Variant? = null
 
     override fun withMaxPlayers(maxPlayers: Int): IParrotServiceBuilder {
         this.maxPlayers = maxPlayers
@@ -41,6 +43,11 @@ class ParrotServiceBuilder(
 
     override fun withMotd(motd: String): IParrotServiceBuilder {
         this.motd = motd
+        return this
+    }
+
+    override fun withVariant(variant: Variant): IParrotServiceBuilder {
+        this.variant = variant
         return this
     }
 

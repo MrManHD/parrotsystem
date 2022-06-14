@@ -6,6 +6,7 @@ import net.mrmanhd.parrot.api.service.player.IGamePlayer
 import net.mrmanhd.parrot.api.service.player.PlayerState
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.api.utils.ParrotLocation
+import net.mrmanhd.parrot.api.utils.Variant
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
@@ -47,6 +48,16 @@ class ParrotService(
     override fun isPrivate(): Boolean = this.privateService
 
     override fun isRemoveWhenServiceEmpty(): Boolean = this.removeWhenServiceEmpty
+
+    override fun getVariant(): Variant? {
+        return getInfo()?.variant
+    }
+
+    override fun setVariant(variant: Variant?) {
+        val serviceInfo = getInfo() ?: return
+        serviceInfo.variant = variant
+        serviceInfo.update()
+    }
 
     override fun getMotd(): String {
         return getInfo()?.motd ?: "Just Another ParrotService"

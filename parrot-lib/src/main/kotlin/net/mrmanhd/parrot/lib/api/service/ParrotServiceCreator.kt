@@ -56,7 +56,8 @@ class ParrotServiceCreator(
             this.builder.motd,
             this.builder.maxPlayers,
             this.builder.propertyMap,
-            this.builder.spawnLocation
+            this.builder.spawnLocation,
+            this.builder.variant
         )
         parrotServiceInfo.update()
 

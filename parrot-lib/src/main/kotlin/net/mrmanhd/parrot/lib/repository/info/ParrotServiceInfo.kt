@@ -4,6 +4,7 @@ import eu.thesimplecloud.jsonlib.JsonLib
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.state.ServiceState
 import net.mrmanhd.parrot.api.utils.ParrotLocation
+import net.mrmanhd.parrot.api.utils.Variant
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.ParrotLib
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
@@ -29,7 +30,8 @@ class ParrotServiceInfo(
     var motd: String,
     var maxPlayers: Int,
     val propertyMap: HashMap<String, Any>,
-    val spawnLocation: ParrotLocation
+    val spawnLocation: ParrotLocation,
+    var variant: Variant?
 ) : Serializable {
 
     val gamePlayers = arrayListOf<GamePlayer>()
