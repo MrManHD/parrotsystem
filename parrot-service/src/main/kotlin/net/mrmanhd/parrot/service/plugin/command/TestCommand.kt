@@ -24,7 +24,7 @@ class TestCommand : BaseCommand() {
         sender as Player
 
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName("bedwars")!!
-        ParrotApi.instance.getServiceHandler().createService(parrotGroup)
+        parrotGroup.createService()
             .withVariant(Variant.fromString("2x5"))
             .withMaxPlayersVariant()
             .withProperty("spectator", true)
