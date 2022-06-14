@@ -25,7 +25,7 @@ class TestCommand : BaseCommand() {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName("bedwars")!!
         ParrotApi.instance.getServiceHandler().createService(parrotGroup)
             .withMaxPlayers(200)
-           //TODO: .withCloudService(sender.getCloudPlayer().getConnectedServer()!!)
+            .withProperty("test123", 456)
             .startService()
                 .addResultListener { sender.sendMessage("server ${it.getName()} startet") }
                 .addFailureListener { sender.sendMessage("failed: ${it.message}") }
