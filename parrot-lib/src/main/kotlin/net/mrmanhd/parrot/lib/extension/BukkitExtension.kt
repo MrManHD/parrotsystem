@@ -4,6 +4,7 @@ import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.Parrot
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 /**
@@ -12,6 +13,12 @@ import org.bukkit.entity.Player
  */
 
 fun Player.sendChatMessage(key: String, vararg strings: Any) {
+    val prefix = Parrot.instance.configRepository.getConfig().prefix
+    val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
+    this.sendMessage(prefix + message)
+}
+
+fun CommandSender.sendChatMessage(key: String, vararg strings: Any) {
     val prefix = Parrot.instance.configRepository.getConfig().prefix
     val message = Parrot.instance.chatMessageService.getChatMessageByKey(key, *strings)
     this.sendMessage(prefix + message)
