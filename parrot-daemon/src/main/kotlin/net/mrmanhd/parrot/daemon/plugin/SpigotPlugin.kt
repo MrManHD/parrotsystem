@@ -1,7 +1,9 @@
 package net.mrmanhd.parrot.daemon.plugin
 
+import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import eu.thesimplecloud.plugin.startup.CloudPlugin
 import net.mrmanhd.parrot.daemon.ParrotDaemon
+import net.mrmanhd.parrot.daemon.command.DebugParrotCommand
 import net.mrmanhd.parrot.daemon.listener.PlayerQuitListener
 import net.mrmanhd.parrot.lib.extension.sendCloudMessage
 import org.bukkit.Bukkit
@@ -35,6 +37,9 @@ class SpigotPlugin : JavaPlugin() {
     private fun registerEvents() {
         val pluginManager = Bukkit.getPluginManager()
         pluginManager.registerEvents(PlayerQuitListener(), this)
+
+        val commandManager = BukkitCommandManager.create(this)
+        commandManager.registerCommand(DebugParrotCommand())
     }
 
 }

@@ -50,6 +50,7 @@ object DefaultChatMessageConfig {
             Pair("debug.gameplayer.update", "GamePlayer §6{0}§7 wurde aktualisiert"),
             Pair("debug.daemon.start.new.service", "Ein neuer ParrotService wird estellt §6{0}"),
             Pair("debug.daemon.stop.service", "Der ParrotService §6{0}§7 wird gestoppt"),
+            Pair("debug.command.update", "Die Nachrichten wurden aktualisiert"),
         )
     }
 
@@ -82,6 +83,7 @@ object DefaultChatMessageConfig {
             Pair("debug.gameplayer.update", "GamePlayer §6{0}§7 was updated"),
             Pair("debug.daemon.start.new.service", "A new ParrotService is created §6{0}"),
             Pair("debug.daemon.stop.service", "The ParrotService §6{0}§7 is stopped"),
+            Pair("debug.command.update", "The news has been updated"),
         )
     }
 
