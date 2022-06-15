@@ -19,6 +19,8 @@ class ParrotCommand : ICommandHandler {
         sender.sendMessage(">> parrot start <GroupName>")
         sender.sendMessage(">> parrot start <GroupName> <ServiceName>")
         sender.sendMessage(">> parrot start <GroupName> <ServiceName> <isPrivate>")
+        sender.sendMessage(">> parrot stop <ParrotService>")
+        sender.sendMessage(">> parrot stopgroup <ParrotGroup>")
         sender.sendMessage(">> parrot list")
         sender.sendMessage(">> parrot reload config")
         sender.sendMessage(">> parrot reload groups")

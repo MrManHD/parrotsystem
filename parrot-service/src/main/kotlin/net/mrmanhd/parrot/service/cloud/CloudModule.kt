@@ -48,6 +48,7 @@ class CloudModule : ICloudModule {
         commandManager.registerCommand(this, ParrotReloadCommand())
         commandManager.registerCommand(this, ListCommand())
         commandManager.registerCommand(this, StartCommand())
+        commandManager.registerCommand(this, StopCommand())
     }
 
     companion object {
