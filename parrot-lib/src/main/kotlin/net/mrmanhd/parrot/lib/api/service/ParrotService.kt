@@ -12,6 +12,7 @@ import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
 import net.mrmanhd.parrot.lib.extension.debugMessage
+import net.mrmanhd.parrot.lib.extension.sendCloudMessage
 import net.mrmanhd.parrot.lib.extension.sendMessage
 import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
@@ -143,6 +144,7 @@ class ParrotService(
 
     fun shutdown() {
         sendMessage("service.daemon.stop.service", getName(), getGroupName())
+        sendCloudMessage("service.start.success", getName(), getGroupName(), getCloudService()?.getName() ?: "null")
         debugMessage("debug.daemon.stop.service", getName())
         Parrot.instance.parrotServiceRepository.remove(getUniqueId())
     }

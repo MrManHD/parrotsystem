@@ -34,6 +34,12 @@ class ParrotServiceStateListener : IMessageListener<ParrotServiceStateDTO> {
 
     private fun handleStarting(parrotService: IParrotService) {
         sendMessage("service.daemon.start.new.service", parrotService.getName(), parrotService.getGroupName())
+        sendCloudMessage(
+            "service.start.success",
+            parrotService.getName(),
+            parrotService.getGroupName(),
+            parrotService.getCloudService()?.getName() ?: "null"
+        )
         debugMessage("debug.daemon.start.new.service", parrotService.getName())
 
         val localServiceHandler = ParrotLib.instance.localServiceHandler
@@ -42,6 +48,12 @@ class ParrotServiceStateListener : IMessageListener<ParrotServiceStateDTO> {
 
     private fun handleStopping(parrotService: IParrotService) {
         sendMessage("service.daemon.stop.service", parrotService.getName(), parrotService.getGroupName())
+        sendCloudMessage(
+            "service.stop",
+            parrotService.getName(),
+            parrotService.getGroupName(),
+            parrotService.getCloudService()?.getName() ?: "null"
+        )
         debugMessage("debug.daemon.stop.service", parrotService.getName())
 
         val localServiceHandler = ParrotLib.instance.localServiceHandler
@@ -54,7 +66,7 @@ class ParrotServiceStateListener : IMessageListener<ParrotServiceStateDTO> {
 
             Parrot.instance.scheduler.schedule({
                 Parrot.instance.parrotServiceRepository.remove(parrotService.getUniqueId())
-            },1, TimeUnit.SECONDS)
+            }, 1, TimeUnit.SECONDS)
         }
     }
 

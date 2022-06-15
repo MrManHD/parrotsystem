@@ -35,7 +35,6 @@ class ParrotServiceCreator(
 
     private fun handleAsyncPromise(cloudService: ICloudService): ParrotService {
         val parrotService = createNewServiceInstance(cloudService.getName())
-        sendCloudMessage("service.start.success", parrotService.getName(), parrotService.getGroupName(), cloudService.getName())
         sendStateMessageChannel(parrotService, cloudService)
         return parrotService
     }
