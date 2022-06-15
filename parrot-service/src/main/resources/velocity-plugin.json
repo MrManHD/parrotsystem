@@ -5,5 +5,5 @@
   "authors": [
     "MrManHD"
   ],
-  "main": "net.mrmanhd.parrot.service.service.VelocityPlugin"
+  "main": "net.mrmanhd.parrot.service.velocity.VelocityPlugin"
 }
