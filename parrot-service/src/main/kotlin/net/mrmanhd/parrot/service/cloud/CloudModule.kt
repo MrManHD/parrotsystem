@@ -8,6 +8,7 @@ import net.mrmanhd.parrot.service.cloud.command.*
 import net.mrmanhd.parrot.service.cloud.config.ConfigHandler
 import net.mrmanhd.parrot.service.cloud.group.GroupHandler
 import net.mrmanhd.parrot.service.cloud.message.ChatMessageHandler
+import net.mrmanhd.parrot.service.cloud.process.ServiceProcessManager
 
 /**
  * Created by MrManHD
@@ -25,6 +26,7 @@ class CloudModule : ICloudModule {
     override fun onEnable() {
         instance = this
         ParrotServiceCore()
+        ServiceProcessManager()
 
         Parrot.instance.hazelcastServerHandler.startConnection()
 
