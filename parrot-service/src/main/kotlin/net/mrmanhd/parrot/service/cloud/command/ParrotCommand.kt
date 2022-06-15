@@ -23,7 +23,7 @@ class ParrotCommand : ICommandHandler {
         sender.sendMessage(">> parrot reload config")
         sender.sendMessage(">> parrot reload groups")
         sender.sendMessage(">> parrot reload messages")
-        sender.sendMessage(">> parrot creategroup <GroupName> <MinimumOnlineServiceCount> <MaxOnlineServiceCount>")
+        sender.sendMessage(">> parrot creategroup <GroupName> <MinimumOnlineServiceCount>")
     }
 
 }
