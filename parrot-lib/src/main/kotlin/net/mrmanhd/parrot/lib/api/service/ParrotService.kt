@@ -1,5 +1,6 @@
 package net.mrmanhd.parrot.lib.api.service
 
+import eu.thesimplecloud.api.CloudAPI
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.player.IGamePlayer
@@ -11,6 +12,8 @@ import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.group.ParrotGroup
 import net.mrmanhd.parrot.lib.api.service.player.GamePlayer
 import net.mrmanhd.parrot.lib.extension.debugMessage
+import net.mrmanhd.parrot.lib.extension.sendMessage
+import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
 import java.util.*
 
@@ -135,7 +138,13 @@ class ParrotService(
     }
 
     override fun stop() {
-        TODO("Not yet implemented")
+        sendShutdownMessageChannel()
+    }
+
+    fun shutdown() {
+        sendMessage("service.daemon.stop.service", getName(), getGroupName())
+        debugMessage("debug.daemon.stop.service", getName())
+        Parrot.instance.parrotServiceRepository.remove(getUniqueId())
     }
 
     override fun update() {
@@ -165,6 +174,15 @@ class ParrotService(
         debugMessage("debug.gameplayer.delete", getGamePlayer(uniqueId)?.getName() ?: uniqueId, getName())
         serviceInfo.gamePlayers.removeIf { it.getUniqueId() == uniqueId }
         serviceInfo.update()
+
+        if (serviceInfo.gamePlayers.isEmpty() && serviceInfo.removeWhenServiceEmpty) {
+            sendShutdownMessageChannel()
+            return
+        }
+
+        if (serviceInfo.gamePlayers.isEmpty() && serviceInfo.state == ServiceState.ENDING) {
+            sendShutdownMessageChannel()
+        }
     }
 
     fun addPreConnectedPlayer(uniqueId: UUID) {
@@ -177,6 +195,13 @@ class ParrotService(
         val serviceInfo = getInfo() ?: return
         serviceInfo.preConnectedPlayers.remove(uniqueId)
         serviceInfo.update()
+    }
+
+    private fun sendShutdownMessageChannel() {
+        val messageChannel = CloudAPI.instance.getMessageChannelManager()
+            .getMessageChannelByName<ParrotServiceStateDTO>("parrot-service-state") ?: return
+        val serviceStateDTO = ParrotServiceStateDTO(getName(), ParrotServiceStateDTO.Type.STOPPING)
+        messageChannel.sendMessage(serviceStateDTO, getCloudService()!!)
     }
 
 }
