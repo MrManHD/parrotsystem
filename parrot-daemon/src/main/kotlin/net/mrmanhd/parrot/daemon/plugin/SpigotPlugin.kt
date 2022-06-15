@@ -2,9 +2,12 @@ package net.mrmanhd.parrot.daemon.plugin
 
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import eu.thesimplecloud.plugin.startup.CloudPlugin
+import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.daemon.ParrotDaemon
 import net.mrmanhd.parrot.daemon.command.DebugParrotCommand
 import net.mrmanhd.parrot.daemon.listener.PlayerQuitListener
+import net.mrmanhd.parrot.lib.Parrot
+import net.mrmanhd.parrot.lib.api.service.ParrotService
 import net.mrmanhd.parrot.lib.extension.sendCloudMessage
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
@@ -31,7 +34,9 @@ class SpigotPlugin : JavaPlugin() {
     }
 
     override fun onDisable() {
-
+        val serviceHandler = ParrotApi.instance.getServiceHandler()
+        serviceHandler.getAllServicesByCloudService(CloudPlugin.instance.thisService())
+            .map { it as ParrotService }.forEach { it.shutdown() }
     }
 
     private fun registerEvents() {
