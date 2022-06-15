@@ -1,5 +1,6 @@
 package net.mrmanhd.parrot.lib.extension
 
+import eu.thesimplecloud.api.CloudAPI
 import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.Parrot
 import org.bukkit.Bukkit
@@ -36,6 +37,9 @@ fun ParrotLocation.asLocation(): Location {
 }
 
 fun debugMessage(key: String, vararg strings: Any) {
+    if (!CloudAPI.instance.getGlobalPropertyHolder().hasProperty("parrot-debugmessages")) {
+        return
+    }
     Bukkit.getOnlinePlayers().filter { it.hasPermission("*") }
         .forEach { it.sendChatMessage(key, *strings) }
 }
