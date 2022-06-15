@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.lib.api.service.builder
 
 import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.service.ICloudService
+import eu.thesimplecloud.api.servicegroup.ICloudServiceGroup
 import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.group.IParrotGroup
 import net.mrmanhd.parrot.api.service.IParrotService
@@ -30,6 +31,7 @@ class ParrotServiceBuilder(
     var isRemoveWhenServiceEmpty = false
     var spawnLocation = parrotGroup.getSpawnLocation()
     var variant: Variant? = null
+    var cloudServiceGroup: ICloudServiceGroup? = null
 
     override fun withMaxPlayers(maxPlayers: Int): IParrotServiceBuilder {
         this.maxPlayers = maxPlayers
@@ -66,6 +68,11 @@ class ParrotServiceBuilder(
         return this
     }
 
+    override fun withStartingGroup(cloudServiceGroup: ICloudServiceGroup): IParrotServiceBuilder {
+        this.cloudServiceGroup = cloudServiceGroup
+        return this
+    }
+
     override fun withProperty(key: String, value: Any): IParrotServiceBuilder {
         this.propertyMap[key] = value
         return this
@@ -88,4 +95,5 @@ class ParrotServiceBuilder(
     fun getCloudService(): ICloudService? {
         return this.cloudServiceName?.let { CloudAPI.instance.getCloudServiceManager().getCloudServiceByName(it) }
     }
+
 }

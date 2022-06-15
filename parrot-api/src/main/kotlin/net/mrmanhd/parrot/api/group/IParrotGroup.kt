@@ -18,7 +18,7 @@ interface IParrotGroup {
 
     fun getMinimumOnlineServiceCount(): Int
 
-    fun getMaxOnlineServiceCount(): Int
+    fun getStartingGroupNames(): List<String>
 
     fun isInMaintenance(): Boolean
 

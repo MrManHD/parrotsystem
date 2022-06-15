@@ -1,6 +1,7 @@
 package net.mrmanhd.parrot.api.service.builder
 
 import eu.thesimplecloud.api.service.ICloudService
+import eu.thesimplecloud.api.servicegroup.ICloudServiceGroup
 import eu.thesimplecloud.clientserverapi.lib.promise.ICommunicationPromise
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.utils.ParrotLocation
@@ -27,6 +28,8 @@ interface IParrotServiceBuilder {
     fun withPrivateService(): IParrotServiceBuilder
 
     fun withCloudService(cloudService: ICloudService): IParrotServiceBuilder
+
+    fun withStartingGroup(cloudServiceGroup: ICloudServiceGroup): IParrotServiceBuilder
 
     fun withProperty(key: String, value: Any): IParrotServiceBuilder
 

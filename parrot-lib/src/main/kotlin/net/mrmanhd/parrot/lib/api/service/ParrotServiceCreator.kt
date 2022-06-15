@@ -73,7 +73,7 @@ class ParrotServiceCreator(
 
     private fun getStartingCloudService(): ICloudService? {
         this.builder.getCloudService()?.let { return it }
-        val serviceGroup = Parrot.instance.configRepository.getConfig().getStartGroupNames().random()
+        val serviceGroup = getCloudServiceGroup()
         if (serviceGroup.getAllServices().none { it.hasServiceLoaded() }) {
             sendCloudMessage("service.start.failed.daemons.offline")
             return null
@@ -93,6 +93,20 @@ class ParrotServiceCreator(
 
     private fun getRandomCloudService(serviceGroup: ICloudServiceGroup): ICloudService {
         return serviceGroup.getAllServices().filter { it.hasServiceLoaded() }.shuffled().random()
+    }
+
+    private fun getCloudServiceGroup(): ICloudServiceGroup {
+        this.builder.cloudServiceGroup?.let { return it }
+        val randomServiceGroup = Parrot.instance.configRepository.getConfig().getStartGroupNames().random()
+        return getParrotGroupStartingGroup() ?: randomServiceGroup
+    }
+
+    private fun getParrotGroupStartingGroup(): ICloudServiceGroup? {
+        val startingGroupNames = this.builder.parrotGroup.getStartingGroupNames()
+        if (startingGroupNames.isEmpty()) {
+            return null
+        }
+        return CloudAPI.instance.getCloudServiceGroupManager().getServiceGroupByName(startingGroupNames.random())
     }
 
 }

@@ -13,7 +13,7 @@ class ParrotGroup(
     private val name: String,
     private val preLoadedWorlds: List<String>,
     private val minimumOnlineServiceCount: Int,
-    private val maxOnlineServiceCount: Int,
+    private val startingGroupNames: List<String>,
     private val maintenance: Boolean,
     private val spawnLocation: ParrotLocation
 ) : IParrotGroup, Serializable {
@@ -24,7 +24,7 @@ class ParrotGroup(
 
     override fun getMinimumOnlineServiceCount(): Int = this.minimumOnlineServiceCount
 
-    override fun getMaxOnlineServiceCount(): Int = this.maxOnlineServiceCount
+    override fun getStartingGroupNames(): List<String> = this.startingGroupNames
 
     override fun isInMaintenance(): Boolean = this.maintenance
 
