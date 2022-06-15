@@ -144,7 +144,7 @@ class ParrotService(
 
     fun shutdown() {
         sendMessage("service.daemon.stop.service", getName(), getGroupName())
-        sendCloudMessage("service.start.success", getName(), getGroupName(), getCloudService()?.getName() ?: "null")
+        sendCloudMessage("service.stop", getName(), getGroupName(), getCloudService()?.getName() ?: "null")
         debugMessage("debug.daemon.stop.service", getName())
         Parrot.instance.parrotServiceRepository.remove(getUniqueId())
     }
