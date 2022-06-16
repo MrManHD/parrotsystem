@@ -1,6 +1,7 @@
 package net.mrmanhd.parrot.service.cloud.config
 
 import net.mrmanhd.parrot.lib.repository.info.ConfigInfo
+import net.mrmanhd.parrot.lib.utils.Tablist
 
 /**
  * Created by MrManHD
@@ -10,11 +11,19 @@ import net.mrmanhd.parrot.lib.repository.info.ConfigInfo
 class Config(
     val prefix: String,
     val language: String,
-    val startGroupNames: List<String>
+    val startGroupNames: List<String>,
+    val legacyTablist: Tablist?,
+    val groupTablist: Tablist,
 ) {
 
     fun convertToConfigInfo(): ConfigInfo {
-        return ConfigInfo(this.prefix, this.language, this.startGroupNames)
+        return ConfigInfo(
+            this.prefix,
+            this.language,
+            this.startGroupNames,
+            this.legacyTablist,
+            this.groupTablist
+        )
     }
 
 }

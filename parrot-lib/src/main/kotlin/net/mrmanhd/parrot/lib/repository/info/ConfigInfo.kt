@@ -2,6 +2,7 @@ package net.mrmanhd.parrot.lib.repository.info
 
 import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.servicegroup.ICloudServiceGroup
+import net.mrmanhd.parrot.lib.utils.Tablist
 import java.io.Serializable
 
 /**
@@ -12,7 +13,9 @@ import java.io.Serializable
 class ConfigInfo(
     val prefix: String,
     val language: String,
-    private val startGroupNames: List<String>
+    private val startGroupNames: List<String>,
+    val legacyTablist: Tablist?,
+    val groupTablist: Tablist,
 ) : Serializable {
 
     fun getStartGroupNames(): List<ICloudServiceGroup> {
