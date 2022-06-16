@@ -26,7 +26,7 @@ class Tablist(
         val connectedProxy = cloudPlayer.getConnectedProxy()
         val connectedServer = cloudPlayer.getConnectedServer()
         return string
-            .replace("%ONLINE_PLAYERS%", connectedServer?.getOnlineCount().toString())
+            .replace("%ONLINE_PLAYERS%", connectedProxy?.getOnlineCount().toString())
             .replace("%MAX_PLAYERS%", connectedProxy?.getMaxPlayers().toString())
             .replace("%PARROT_SERVICE%", parrotService?.getName() ?: "?")
             .replace("%SERVER%", connectedServer?.getName() ?: "?")
