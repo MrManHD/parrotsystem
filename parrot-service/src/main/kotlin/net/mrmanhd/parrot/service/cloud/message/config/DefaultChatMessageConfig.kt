@@ -56,6 +56,9 @@ object DefaultChatMessageConfig {
             Pair("debug.daemon.start.new.service", "Ein neuer ParrotService wird estellt §6{0}"),
             Pair("debug.daemon.stop.service", "Der ParrotService §6{0}§7 wird gestoppt"),
             Pair("debug.command.update", "Die Nachrichten wurden aktualisiert"),
+            Pair("debug.world.template.load", "Welttemplate §6{0}§7 wird nun geladen"),
+            Pair("debug.world.template.failed.import", "§cWelttemplate {0} ist bereits geladen!"),
+            Pair("debug.world.load.template", "SlimeWorld wird von Template §6{0}§7 geladen für §6{1}")
         )
     }
 
@@ -94,6 +97,9 @@ object DefaultChatMessageConfig {
             Pair("debug.daemon.start.new.service", "A new ParrotService is created §6{0}"),
             Pair("debug.daemon.stop.service", "The ParrotService §6{0}§7 is stopped"),
             Pair("debug.command.update", "The news has been updated"),
+            Pair("debug.world.template.load", "Worldtemplate §6{0}§7 is now loaded"),
+            Pair("debug.world.template.failed.import", "§cWorldtemplate {0} is already loaded!"),
+            Pair("debug.world.load.template", "SlimeWorld is loaded from template §6{0}§7 for §6{1}")
         )
     }
 

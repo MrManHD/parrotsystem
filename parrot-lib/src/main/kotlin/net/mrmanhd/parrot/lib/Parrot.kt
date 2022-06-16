@@ -9,6 +9,7 @@ import net.mrmanhd.parrot.lib.repository.ChatMessageRepository
 import net.mrmanhd.parrot.lib.repository.ConfigRepository
 import net.mrmanhd.parrot.lib.repository.ParrotGroupRepository
 import net.mrmanhd.parrot.lib.repository.ParrotServiceRepository
+import net.mrmanhd.parrot.lib.world.WorldHandler
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 
@@ -25,6 +26,8 @@ class Parrot {
 
     val hazelcastClientHandler = HazelcastClientHandler()
     val hazelcastServerHandler = HazelcastServerHandler()
+
+    val worldHandler = WorldHandler()
 
     val parrotServiceRepository = ParrotServiceRepository()
     val parrotGroupRepository = ParrotGroupRepository()
