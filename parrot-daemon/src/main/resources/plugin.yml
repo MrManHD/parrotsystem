@@ -5,8 +5,10 @@ api-version: 1.18
 depend:
   - SimpleCloud-Plugin
   - parrotservice
+  - SlimeWorldManager
 loadbefore:
   - SimpleCloud-Plugin
   - parrotservice
+  - SlimeWorldManager
 
 main: net.mrmanhd.parrot.daemon.plugin.SpigotPlugin

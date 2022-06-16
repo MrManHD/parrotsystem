@@ -5,6 +5,7 @@ plugins {
 dependencies {
     paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:1.18.2-R0.1-SNAPSHOT")
 
+    compileOnly(files("/libs/swm-api.jar"))
 
     compileOnly(project(":parrot-lib"))
     compileOnly("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
