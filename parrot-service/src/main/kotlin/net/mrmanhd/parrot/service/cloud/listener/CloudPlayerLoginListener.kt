@@ -15,7 +15,7 @@ class CloudPlayerLoginListener : IListener {
     @CloudEventHandler
     fun handleLogin(event: CloudPlayerLoginEvent) {
         event.getCloudPlayer()
-            .addResultListener { CloudModule.instance.tablistHandler.sendTablistToCloudPlayer(it) }
+            .then { CloudModule.instance.tablistHandler.sendTablistToCloudPlayer(it) }
     }
 
 }
