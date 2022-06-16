@@ -5,12 +5,14 @@ import eu.thesimplecloud.api.command.ICommandSender
 import eu.thesimplecloud.launcher.console.command.CommandType
 import eu.thesimplecloud.launcher.console.command.ICommandHandler
 import eu.thesimplecloud.launcher.console.command.annotations.*
+import eu.thesimplecloud.launcher.console.command.provider.ServiceCommandSuggestionProvider
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
-import net.mrmanhd.parrot.api.utils.ParrotLocation
+import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
-import net.mrmanhd.parrot.service.cloud.CloudModule
-import net.mrmanhd.parrot.service.cloud.group.Group
+import net.mrmanhd.parrot.service.cloud.provider.BooleanProvider
+import net.mrmanhd.parrot.service.cloud.provider.ParrotCloudServiceProvider
+import net.mrmanhd.parrot.service.cloud.provider.ParrotGroupProvider
 
 /**
  * Created by MrManHD
@@ -28,7 +30,7 @@ class StartCommand : ICommandHandler {
     }
 
     @CommandSubPath("start <groupName>")
-    fun handleExecute(sender: ICommandSender, @CommandArgument("groupName") groupName: String) {
+    fun handleExecute(sender: ICommandSender, @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
             sender.sendChatMessage("command.start.failed.group", groupName)
@@ -41,8 +43,8 @@ class StartCommand : ICommandHandler {
     @CommandSubPath("start <groupName> <serviceName>")
     fun handleExecute(
         sender: ICommandSender,
-        @CommandArgument("groupName") groupName: String,
-        @CommandArgument("serviceName") serviceName: String
+        @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String,
+        @CommandArgument("serviceName", ParrotCloudServiceProvider::class) serviceName: String
     ) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
@@ -51,22 +53,26 @@ class StartCommand : ICommandHandler {
         }
 
         val cloudService = CloudAPI.instance.getCloudServiceManager().getCloudServiceByName(serviceName)
-        if (cloudService == null) {
+
+        val config = Parrot.instance.configRepository.getConfig()
+        val serviceGroup = config.getStartGroupNames().firstOrNull { cloudService?.getGroupName() == it.getName() }
+
+        if (serviceGroup == null) {
             sender.sendChatMessage("command.start.failed.cloudService", serviceName)
             return
         }
 
         val serviceBuilder = ParrotApi.instance.getServiceHandler().createService(parrotGroup)
-            .withCloudService(cloudService)
+            .withCloudService(cloudService!!)
         startService(sender, serviceBuilder)
     }
 
     @CommandSubPath("start <groupName> <serviceName> <isPrivate>")
     fun handleExecute(
         sender: ICommandSender,
-        @CommandArgument("groupName") groupName: String,
-        @CommandArgument("serviceName") serviceName: String,
-        @CommandArgument("isPrivate") isPrivate: Boolean
+        @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String,
+        @CommandArgument("serviceName", ParrotCloudServiceProvider::class) serviceName: String,
+        @CommandArgument("isPrivate", BooleanProvider::class) isPrivate: Boolean
     ) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
@@ -75,13 +81,17 @@ class StartCommand : ICommandHandler {
         }
 
         val cloudService = CloudAPI.instance.getCloudServiceManager().getCloudServiceByName(serviceName)
-        if (cloudService == null) {
+
+        val config = Parrot.instance.configRepository.getConfig()
+        val serviceGroup = config.getStartGroupNames().firstOrNull { cloudService?.getGroupName() == it.getName() }
+
+        if (serviceGroup == null) {
             sender.sendChatMessage("command.start.failed.cloudService", serviceName)
             return
         }
 
         val serviceBuilder = ParrotApi.instance.getServiceHandler().createService(parrotGroup)
-            .withCloudService(cloudService)
+            .withCloudService(cloudService!!)
 
         if (isPrivate) {
             serviceBuilder.withPrivateService()

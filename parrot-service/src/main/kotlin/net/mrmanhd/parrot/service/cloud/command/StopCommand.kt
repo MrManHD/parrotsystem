@@ -1,16 +1,13 @@
 package net.mrmanhd.parrot.service.cloud.command
 
-import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.command.ICommandSender
 import eu.thesimplecloud.launcher.console.command.CommandType
 import eu.thesimplecloud.launcher.console.command.ICommandHandler
 import eu.thesimplecloud.launcher.console.command.annotations.*
 import net.mrmanhd.parrot.api.ParrotApi
-import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
-import net.mrmanhd.parrot.api.utils.ParrotLocation
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
-import net.mrmanhd.parrot.service.cloud.CloudModule
-import net.mrmanhd.parrot.service.cloud.group.Group
+import net.mrmanhd.parrot.service.cloud.provider.ParrotGroupProvider
+import net.mrmanhd.parrot.service.cloud.provider.ParrotServiceProvider
 
 /**
  * Created by MrManHD
@@ -27,7 +24,7 @@ class StopCommand : ICommandHandler {
     }
 
     @CommandSubPath("stop <parrotService>")
-    fun handleExecute(sender: ICommandSender, @CommandArgument("parrotService") parrotService: String) {
+    fun handleExecute(sender: ICommandSender, @CommandArgument("parrotService", ParrotServiceProvider::class) parrotService: String) {
         val service = ParrotApi.instance.getServiceHandler().getServiceByName(parrotService)
         if (service == null) {
             sender.sendChatMessage("command.stop.failed.service", parrotService)
@@ -38,7 +35,7 @@ class StopCommand : ICommandHandler {
     }
 
     @CommandSubPath("stopgroup <parrotGroup>")
-    fun handleExecuteStopGroup(sender: ICommandSender, @CommandArgument("parrotGroup") parrotGroup: String) {
+    fun handleExecuteStopGroup(sender: ICommandSender, @CommandArgument("parrotGroup", ParrotGroupProvider::class) parrotGroup: String) {
         val group = ParrotApi.instance.getGroupHandler().getGroupByName(parrotGroup)
         if (group == null) {
             sender.sendChatMessage("command.stop.failed.service", parrotGroup)
