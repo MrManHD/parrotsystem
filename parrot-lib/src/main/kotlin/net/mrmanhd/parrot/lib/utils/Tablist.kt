@@ -1,5 +1,6 @@
 package net.mrmanhd.parrot.lib.utils
 
+import eu.thesimplecloud.api.CloudAPI
 import eu.thesimplecloud.api.player.ICloudPlayer
 import net.mrmanhd.parrot.api.extension.getParrotService
 import java.io.Serializable
@@ -22,10 +23,11 @@ class Tablist(
 
     private fun replaceStringToPlaceholder(cloudPlayer: ICloudPlayer, string: String): String {
         val parrotService = cloudPlayer.getParrotService()
+        val connectedProxy = cloudPlayer.getConnectedProxy()
         val connectedServer = cloudPlayer.getConnectedServer()
         return string
             .replace("%ONLINE_PLAYERS%", connectedServer?.getOnlineCount().toString())
-            .replace("%MAX_PLAYERS%", connectedServer?.getMaxMemory().toString())
+            .replace("%MAX_PLAYERS%", connectedProxy?.getMaxPlayers().toString())
             .replace("%PARROT_SERVICE%", parrotService?.getName() ?: "?")
             .replace("%SERVER%", connectedServer?.getName() ?: "?")
             .replace("%PARROT_GROUP%", parrotService?.getGroupName() ?: "?")
