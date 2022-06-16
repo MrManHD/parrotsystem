@@ -27,7 +27,7 @@ object DefaultConfig {
                 listOf(
                     "",
                     "§6ParrotSystem §8-§7§o Erstelle mehrere Spiele auf einem Server §8┃§b 1.18",
-                    "§7Du bist gerade auf §8» §a%SERVER%",
+                    "§7Du bist gerade auf §8» §a%PARROT_SERVICE%",
                     ""
                 ),
                 listOf(
