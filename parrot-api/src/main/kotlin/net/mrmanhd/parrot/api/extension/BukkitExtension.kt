@@ -3,6 +3,7 @@ package net.mrmanhd.parrot.api.extension
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.IParrotService
 import org.bukkit.Bukkit
+import org.bukkit.World
 import org.bukkit.entity.Player
 
 /**
@@ -18,6 +19,11 @@ fun Player.connectToService(parrotService: IParrotService) {
     parrotService.connectPlayer(this.uniqueId)
 }
 
+
 fun IParrotService.getBukkitGamePlayers(): List<Player> {
     return this.getGamePlayers().mapNotNull { Bukkit.getPlayer(it.getUniqueId()) }
+}
+
+fun IParrotService.getBukkitWorlds(): List<World> {
+    return Bukkit.getWorlds().filter { it.name.startsWith(this.getUniqueId().toString()) }
 }
