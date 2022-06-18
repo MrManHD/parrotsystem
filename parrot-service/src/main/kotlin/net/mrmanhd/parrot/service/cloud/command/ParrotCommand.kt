@@ -20,13 +20,14 @@ class ParrotCommand : ICommandHandler {
         sender.sendMessage(">> parrot creategame <GroupName> <ServiceName>")
         sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate>")
         sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate> <WorldName>")
+        sender.sendMessage(">> parrot creategroup <GroupName> <MinimumOnlineServiceCount>")
+        sender.sendMessage(">> parrot restart")
         sender.sendMessage(">> parrot stop <ParrotService>")
         sender.sendMessage(">> parrot stopgroup <ParrotGroup>")
         sender.sendMessage(">> parrot list")
         sender.sendMessage(">> parrot reload config")
         sender.sendMessage(">> parrot reload groups")
         sender.sendMessage(">> parrot reload messages")
-        sender.sendMessage(">> parrot creategroup <GroupName> <MinimumOnlineServiceCount>")
     }
 
 }

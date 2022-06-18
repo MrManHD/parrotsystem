@@ -57,6 +57,7 @@ class CloudModule : ICloudModule {
         commandManager.registerCommand(this, ListCommand())
         commandManager.registerCommand(this, CreateGameCommand())
         commandManager.registerCommand(this, StopCommand())
+        commandManager.registerCommand(this, RestartCommand())
     }
 
     companion object {
