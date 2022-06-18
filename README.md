@@ -38,7 +38,7 @@ Wenn du diese Bedingungen erfüllst, dann hab viel spaß mit dem ParrotSystem:
 <br>
 
 ## Spielmodi
-Für das ParrotSystem gibt es schon bald zwei vorgefertigte Spielmodi, allerdings kannst du auch mit der dafür extra angefertigte GameApi auch eigene Spielmodies erstellen. Eine Dokumentation zur GameApi findest du <a href="https://github.com/MrManHD">HIER</a>
+Für das ParrotSystem gibt es schon bald zwei vorgefertigte Spielmodi, allerdings kannst du auch mit der dafür extra angefertigte GameApi auch eigene Spielmodies erstellen. Eine Dokumentation zur GameApi findest du <a href="https://github.com/MrManHD/gameapi">HIER</a>
 
 <br>
 
