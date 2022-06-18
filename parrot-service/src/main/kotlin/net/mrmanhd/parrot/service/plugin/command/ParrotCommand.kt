@@ -26,6 +26,7 @@ class ParrotCommand : BaseCommand() {
     fun execute(sender: CommandSender) {
         sender as Player
         sender.sendChatMessage("ingame.command.parrot.info")
+        sender.sendMessage("§8-§7 /parrot join <ParrotService>")
         sender.sendMessage("§8-§7 /parrot send <ParrotService> <Playername>")
     }
 
@@ -44,12 +45,6 @@ class ParrotCommand : BaseCommand() {
             return
         }
 
-        if (sender.name.equals(playerName, true)) {
-            sender.sendChatMessage("ingame.command.parrot.send.success.self", parrotName)
-            sender.connectToService(parrotService)
-            return
-        }
-
         CloudAPI.instance.getCloudPlayerManager().getCloudPlayer(playerName)
             .addResultListener {
                 it.sendChatMessage("ingame.command.parrot.send.from.player", sender.name, parrotName)
@@ -57,7 +52,21 @@ class ParrotCommand : BaseCommand() {
                 it.connectToService(parrotService)
             }
             .addFailureListener { sender.sendChatMessage("ingame.command.parrot.send.failed.playerName") }
-1
+    }
+
+    @SubCommand("join")
+    @Permission("parrot.command.join")
+    fun executeJoin(sender: CommandSender, @Suggestion("parrotServices") parrotName: String) {
+        sender as Player
+
+        val parrotService = ParrotApi.instance.getServiceHandler().getServiceByName(parrotName)
+        if (parrotService == null) {
+            sender.sendChatMessage("ingame.command.parrot.join.failed.parrotService")
+            return
+        }
+
+        sender.sendChatMessage("ingame.command.parrot.join.success", parrotName)
+        sender.connectToService(parrotService)
     }
 
 }
