@@ -16,9 +16,10 @@ class ParrotCommand : ICommandHandler {
 
     @CommandSubPath
     fun handleExecute(sender: ICommandSender) {
-        sender.sendMessage(">> parrot start <GroupName>")
-        sender.sendMessage(">> parrot start <GroupName> <ServiceName>")
-        sender.sendMessage(">> parrot start <GroupName> <ServiceName> <isPrivate>")
+        sender.sendMessage(">> parrot creategame <GroupName>")
+        sender.sendMessage(">> parrot creategame <GroupName> <ServiceName>")
+        sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate>")
+        sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate> <WorldName>")
         sender.sendMessage(">> parrot stop <ParrotService>")
         sender.sendMessage(">> parrot stopgroup <ParrotGroup>")
         sender.sendMessage(">> parrot list")

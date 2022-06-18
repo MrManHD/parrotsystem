@@ -7,6 +7,7 @@ import eu.thesimplecloud.launcher.console.command.ICommandHandler
 import eu.thesimplecloud.launcher.console.command.annotations.*
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
+import net.mrmanhd.parrot.api.utils.Variant
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.extension.sendChatMessage
 import net.mrmanhd.parrot.service.cloud.provider.BooleanProvider
@@ -21,14 +22,15 @@ import net.mrmanhd.parrot.service.cloud.provider.ParrotGroupProvider
 @Command("parrot", CommandType.CONSOLE)
 class CreateGameCommand : ICommandHandler {
 
-    @CommandSubPath("start")
+    @CommandSubPath("creategame")
     fun handle(sender: ICommandSender) {
         sender.sendMessage(">> parrot creategame <GroupName>")
         sender.sendMessage(">> parrot creategame <GroupName> <ServiceName>")
         sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate>")
+        sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate> <WorldName>")
     }
 
-    @CommandSubPath("start <groupName>")
+    @CommandSubPath("creategame <groupName>")
     fun handleExecute(sender: ICommandSender, @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
@@ -39,7 +41,7 @@ class CreateGameCommand : ICommandHandler {
         startService(sender, ParrotApi.instance.getServiceHandler().createService(parrotGroup))
     }
 
-    @CommandSubPath("start <groupName> <serviceName>")
+    @CommandSubPath("creategame <groupName> <serviceName>")
     fun handleExecute(
         sender: ICommandSender,
         @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String,
@@ -66,7 +68,7 @@ class CreateGameCommand : ICommandHandler {
         startService(sender, serviceBuilder)
     }
 
-    @CommandSubPath("start <groupName> <serviceName> <isPrivate>")
+    @CommandSubPath("creategame <groupName> <serviceName> <isPrivate>")
     fun handleExecute(
         sender: ICommandSender,
         @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String,
@@ -98,6 +100,47 @@ class CreateGameCommand : ICommandHandler {
 
         startService(sender, serviceBuilder)
     }
+
+    @CommandSubPath("creategame <groupName> <serviceName> <isPrivate> <worldName>")
+    fun handleExecute(
+        sender: ICommandSender,
+        @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String,
+        @CommandArgument("serviceName", ParrotCloudServiceProvider::class) serviceName: String,
+        @CommandArgument("isPrivate", BooleanProvider::class) isPrivate: Boolean,
+        @CommandArgument("worldName") worldName: String
+    ) {
+        val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
+        if (parrotGroup == null) {
+            sender.sendChatMessage("command.start.failed.group", groupName)
+            return
+        }
+
+        val cloudService = CloudAPI.instance.getCloudServiceManager().getCloudServiceByName(serviceName)
+
+        val config = Parrot.instance.configRepository.getConfig()
+        val serviceGroup = config.getStartGroupNames().firstOrNull { cloudService?.getGroupName() == it.getName() }
+
+        if (serviceGroup == null) {
+            sender.sendChatMessage("command.start.failed.cloudService", serviceName)
+            return
+        }
+
+        val split = worldName.split("_")
+        val variant = Variant.fromString(split[0])
+
+        val serviceBuilder = ParrotApi.instance.getServiceHandler().createService(parrotGroup)
+            .withCloudService(cloudService!!)
+            .withVariant(variant)
+            .withMaxPlayersVariant()
+            .withMotd(split[1])
+
+        if (isPrivate) {
+            serviceBuilder.withPrivateService()
+        }
+
+        startService(sender, serviceBuilder)
+    }
+
 
     private fun startService(sender: ICommandSender, serviceBuilder: IParrotServiceBuilder) {
         serviceBuilder.startService()
