@@ -27,7 +27,7 @@ class WorldTemplate(
         val slimePlugin = Bukkit.getPluginManager().getPlugin("SlimeWorldManager") as SlimePlugin
         val slimeLoader = slimePlugin.getLoader("file")
 
-        writeMessage("load Worldtemplate $slimeWorldTemplateName")
+        writeMessage("[Parrot] Load Worldtemplate $slimeWorldTemplateName")
         debugMessage("debug.world.template.load", slimeWorldTemplateName)
 
         importSlimeWorld(slimePlugin, slimeLoader)
