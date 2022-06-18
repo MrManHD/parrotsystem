@@ -1,6 +1,8 @@
 package net.mrmanhd.parrot.daemon.plugin
 
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
+import dev.triumphteam.cmd.core.message.MessageKey
+import dev.triumphteam.cmd.core.message.MessageResolver
 import eu.thesimplecloud.plugin.startup.CloudPlugin
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.daemon.ParrotDaemon
@@ -47,6 +49,12 @@ class SpigotPlugin : JavaPlugin() {
         val commandManager = BukkitCommandManager.create(this)
         commandManager.registerCommand(DebugParrotCommand())
         commandManager.registerCommand(GotoWorldCommand())
+
+        commandManager.registerMessage(MessageKey.NOT_ENOUGH_ARGUMENTS) { sender, context ->
+            when (context.command) {
+                "gotoworld" -> sender.sendMessage("/gotoworld <WorldName>")
+            }
+        }
     }
 
 }
