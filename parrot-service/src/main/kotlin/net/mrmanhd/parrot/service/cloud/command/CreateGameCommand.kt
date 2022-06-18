@@ -34,7 +34,7 @@ class CreateGameCommand : ICommandHandler {
     fun handleExecute(sender: ICommandSender, @CommandArgument("groupName", ParrotGroupProvider::class) groupName: String) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
-            sender.sendChatMessage("command.start.failed.group", groupName)
+            sender.sendChatMessage("command.creategame.failed.group", groupName)
             return
         }
 
@@ -49,7 +49,7 @@ class CreateGameCommand : ICommandHandler {
     ) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
-            sender.sendChatMessage("command.start.failed.group", groupName)
+            sender.sendChatMessage("command.creategame.failed.group", groupName)
             return
         }
 
@@ -59,7 +59,7 @@ class CreateGameCommand : ICommandHandler {
         val serviceGroup = config.getStartGroups().firstOrNull { cloudService?.getGroupName() == it.getName() }
 
         if (serviceGroup == null) {
-            sender.sendChatMessage("command.start.failed.cloudService", serviceName)
+            sender.sendChatMessage("command.creategame.failed.cloudService", serviceName)
             return
         }
 
@@ -77,7 +77,7 @@ class CreateGameCommand : ICommandHandler {
     ) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
-            sender.sendChatMessage("command.start.failed.group", groupName)
+            sender.sendChatMessage("command.creategame.failed.group", groupName)
             return
         }
 
@@ -87,7 +87,7 @@ class CreateGameCommand : ICommandHandler {
         val serviceGroup = config.getStartGroups().firstOrNull { cloudService?.getGroupName() == it.getName() }
 
         if (serviceGroup == null) {
-            sender.sendChatMessage("command.start.failed.cloudService", serviceName)
+            sender.sendChatMessage("command.creategame.failed.cloudService", serviceName)
             return
         }
 
@@ -111,7 +111,7 @@ class CreateGameCommand : ICommandHandler {
     ) {
         val parrotGroup = ParrotApi.instance.getGroupHandler().getGroupByName(groupName)
         if (parrotGroup == null) {
-            sender.sendChatMessage("command.start.failed.group", groupName)
+            sender.sendChatMessage("command.creategame.failed.group", groupName)
             return
         }
 
@@ -121,7 +121,7 @@ class CreateGameCommand : ICommandHandler {
         val serviceGroup = config.getStartGroups().firstOrNull { cloudService?.getGroupName() == it.getName() }
 
         if (serviceGroup == null) {
-            sender.sendChatMessage("command.start.failed.cloudService", serviceName)
+            sender.sendChatMessage("command.creategame.failed.cloudService", serviceName)
             return
         }
 
@@ -144,7 +144,7 @@ class CreateGameCommand : ICommandHandler {
 
     private fun startService(sender: ICommandSender, serviceBuilder: IParrotServiceBuilder) {
         serviceBuilder.startService()
-            .addResultListener { sender.sendChatMessage("command.start.success", it.getName()) }
+            .addResultListener { sender.sendChatMessage("command.creategame.success", it.getName()) }
             .addFailureListener { it.printStackTrace() }
     }
 
