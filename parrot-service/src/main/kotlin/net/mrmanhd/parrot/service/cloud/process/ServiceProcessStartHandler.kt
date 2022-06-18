@@ -24,7 +24,7 @@ class ServiceProcessStartHandler {
     }
 
     private fun getCloudServices(): List<ICloudService> {
-        return Parrot.instance.configRepository.getConfig().getStartGroupNames()
+        return Parrot.instance.configRepository.getConfig().getStartGroups()
             .map { it.getAllServices() }
             .flatten()
     }

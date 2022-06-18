@@ -31,7 +31,7 @@ class TablistHandler {
 
     private fun isCloudPlayerInService(cloudPlayer: ICloudPlayer): Boolean {
         val cloudServiceGroup = cloudPlayer.getConnectedServer()?.getServiceGroup() ?: return false
-        return this.config.getStartGroupNames().contains(cloudServiceGroup)
+        return this.config.getStartGroups().contains(cloudServiceGroup)
     }
 
 }

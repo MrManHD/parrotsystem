@@ -12,7 +12,7 @@ import net.mrmanhd.parrot.lib.Parrot
 
 class ParrotCloudServiceProvider : ICommandSuggestionProvider {
     override fun getSuggestions(sender: ICommandSender, fullCommand: String, lastArgument: String): List<String> {
-        return Parrot.instance.configRepository.getConfig().getStartGroupNames()
+        return Parrot.instance.configRepository.getConfig().getStartGroups()
             .map { it.getAllServices() }
             .flatten()
             .map { it.getName() }
