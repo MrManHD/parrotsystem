@@ -18,7 +18,7 @@ class ConfigInfo(
     val groupTablist: Tablist,
 ) : Serializable {
 
-    fun getStartGroupNames(): List<ICloudServiceGroup> {
+    fun getStartGroups(): List<ICloudServiceGroup> {
         val groupManager = CloudAPI.instance.getCloudServiceGroupManager()
         return this.startGroupNames.mapNotNull { groupManager.getServiceGroupByName(it) }
     }
