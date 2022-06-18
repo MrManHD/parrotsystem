@@ -28,8 +28,8 @@ class ParrotServiceCreator(
 ) {
 
     fun start(): ICommunicationPromise<IParrotService> {
-        val cloudService = getStartingCloudService() ?: return CommunicationPromise<IParrotService>()
-            .setFailure(CloudServiceNotFoundException())
+        val cloudService = getStartingCloudService() ?: return CommunicationPromise
+            .failed(CloudServiceNotFoundException())
         return CommunicationPromise.runAsync { handleAsyncPromise(cloudService) }
     }
 
@@ -96,16 +96,16 @@ class ParrotServiceCreator(
 
     private fun getCloudServiceGroup(): ICloudServiceGroup {
         this.builder.cloudServiceGroup?.let { return it }
-        val randomServiceGroup = Parrot.instance.configRepository.getConfig().getStartGroupNames().random()
+        val randomServiceGroup = Parrot.instance.configRepository.getConfig().getStartGroups().random()
         return getParrotGroupStartingGroup() ?: randomServiceGroup
     }
 
     private fun getParrotGroupStartingGroup(): ICloudServiceGroup? {
-        val startingGroupNames = this.builder.parrotGroup.getStartingGroupNames()
+        val startingGroupNames = this.builder.parrotGroup.getStartingCloudServiceGroups()
         if (startingGroupNames.isEmpty()) {
             return null
         }
-        return CloudAPI.instance.getCloudServiceGroupManager().getServiceGroupByName(startingGroupNames.random())
+        return startingGroupNames.random()
     }
 
 }
