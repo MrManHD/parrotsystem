@@ -16,7 +16,7 @@
       </ul>
     </li>
     <li><a href="#spielmodi">Spielmodi</a></li>
-    <li><a href="https://github.com/MrManHD/parrotsystem/wiki">Wiki</a></li>
+    <li><a href="https://mrmanhd.gitbook.io/parrotsystem/">Wiki</a></li>
     <li><a href="#demoserver">Demoserver</a></li>
   </ol>
 </details>
