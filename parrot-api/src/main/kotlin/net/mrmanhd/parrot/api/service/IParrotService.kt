@@ -131,7 +131,7 @@ interface IParrotService {
     }
 
 
-    fun loadWorld(slimeWorldName: String)
+    fun loadWorld(slimeWorldTemplateName: String)
 
     fun unloadWorld(slimeWorldName: String)
 

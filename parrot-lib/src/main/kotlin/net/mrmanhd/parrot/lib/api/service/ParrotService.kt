@@ -15,6 +15,7 @@ import net.mrmanhd.parrot.lib.extension.debugMessage
 import net.mrmanhd.parrot.lib.extension.sendCloudMessage
 import net.mrmanhd.parrot.lib.extension.sendMessage
 import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotServiceStateDTO
+import net.mrmanhd.parrot.lib.messagechannel.dto.ParrotWorldStateDTO
 import net.mrmanhd.parrot.lib.repository.info.ParrotServiceInfo
 import java.util.*
 
@@ -130,12 +131,12 @@ class ParrotService(
         serviceInfo.update()
     }
 
-    override fun loadWorld(slimeWorldName: String) {
-        TODO("Not yet implemented")
+    override fun loadWorld(slimeWorldTemplateName: String) {
+        sendWorldMessageChannel(slimeWorldTemplateName, ParrotWorldStateDTO.Type.LOAD)
     }
 
     override fun unloadWorld(slimeWorldName: String) {
-        TODO("Not yet implemented")
+        sendWorldMessageChannel(slimeWorldName, ParrotWorldStateDTO.Type.UNLOAD)
     }
 
     override fun stop() {
@@ -204,6 +205,13 @@ class ParrotService(
             .getMessageChannelByName<ParrotServiceStateDTO>("parrot-service-state") ?: return
         val serviceStateDTO = ParrotServiceStateDTO(getName(), ParrotServiceStateDTO.Type.STOPPING)
         messageChannel.sendMessage(serviceStateDTO, getCloudService()!!)
+    }
+
+    private fun sendWorldMessageChannel(slimeWorldTemplateName: String, type: ParrotWorldStateDTO.Type) {
+        val messageChannel = CloudAPI.instance.getMessageChannelManager()
+            .getMessageChannelByName<ParrotWorldStateDTO>("parrot-world-state") ?: return
+        val parrotWorldStateDTO = ParrotWorldStateDTO(getName(), slimeWorldTemplateName, type)
+        messageChannel.sendMessage(parrotWorldStateDTO, getCloudService()!!)
     }
 
 }
