@@ -5,6 +5,7 @@ import eu.thesimplecloud.api.network.component.INetworkComponent
 import eu.thesimplecloud.plugin.extension.syncBukkit
 import net.kyori.adventure.text.Component
 import net.mrmanhd.parrot.api.extension.getBukkitGamePlayers
+import net.mrmanhd.parrot.api.extension.getBukkitWorlds
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.ParrotLib
@@ -63,6 +64,8 @@ class ParrotServiceStateListener : IMessageListener<ParrotServiceStateDTO> {
             parrotService.getBukkitGamePlayers().forEach {
                 it.kick(Component.text("§cDas Spiel wird nun neugestartet!"))
             }
+
+            parrotService.getBukkitWorlds().forEach { parrotService.unloadWorld(it.name) }
 
             Parrot.instance.scheduler.schedule({
                 Parrot.instance.parrotServiceRepository.remove(parrotService.getUniqueId())
