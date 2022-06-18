@@ -15,15 +15,8 @@
         <li><a href="#bedingungen">Bedingungen</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#spielmodi">Spielmodi</a>
-      <ul>
-        <li><a href="#bedwars">Bedwars</a></li>
-        <li><a href="#1vs1">1vs1</a></li>
-      </ul>
-    </li>
-    <li><a href="https://github.com/MrManHD/parrotsystem/wiki/ParrotApi">ParrotApi</a></li>
-    <li><a href="#gameapi">GameApi</a></li>
+    <li><a href="#spielmodi">Spielmodi</a></li>
+    <li><a href="https://github.com/MrManHD/parrotsystem/wiki/ParrotApi">Wiki</a></li>
     <li><a href="#demoserver">Demoserver</a></li>
   </ol>
 </details>
@@ -34,7 +27,7 @@
 Mit dem ParrotSystem bist du nun in der Lage, mehrere Runden eines oder mehrere Minispiele laufen zu lassen. Hierbei ist es auch egal, was es für ein Minispiel ist. Es können Bedwars Runden, Skywars Runden oder was völlig anderes sein. Es muss von nun an mit diesem System nicht mehr alles auf einzelne Servern stattfinden.
 
 ### Einrichtung
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Ein Video für die Einrichtung kommt bald!
 
 ### Bedingungen
 Wenn du diese Bedingungen erfüllst, dann hab viel spaß mit dem ParrotSystem:
@@ -45,13 +38,7 @@ Wenn du diese Bedingungen erfüllst, dann hab viel spaß mit dem ParrotSystem:
 <br>
 
 ## Spielmodi
-Für das ParrotSystem gibt es schon vorab zwei vorgefertigte Spielmodi, allerdings kannst du auch mit der dafür extra angefertigte GameApi auch eigene Spielmodies erstellen. Eine Dokumentation zur GameApi findest du <a href="https://github.com/MrManHD">HIER</a>
-
-### Bedwars
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-
-### 1vs1
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+Für das ParrotSystem gibt es schon bald zwei vorgefertigte Spielmodi, allerdings kannst du auch mit der dafür extra angefertigte GameApi auch eigene Spielmodies erstellen. Eine Dokumentation zur GameApi findest du <a href="https://github.com/MrManHD">HIER</a>
 
 <br>
 
