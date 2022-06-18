@@ -13,15 +13,9 @@ import java.io.File
 
 class ParrotTemplateGroupHandler {
 
-    private val parrotDirectory = File("parrot")
-
     fun loadTemplateGroups() {
-        getAvailableParrotGroups().forEach { registerTemplateGroup(it) }
-    }
-
-    private fun getAvailableParrotGroups(): List<IParrotGroup> {
-        val groupHandler = ParrotApi.instance.getGroupHandler()
-        return this.parrotDirectory.listFiles()?.map { groupHandler.getGroupByName(it.name)!! } ?: listOf()
+        val allGroups = ParrotApi.instance.getGroupHandler().getAllGroups()
+        allGroups.forEach { registerTemplateGroup(it) }
     }
 
     private fun registerTemplateGroup(parrotGroup: IParrotGroup) {

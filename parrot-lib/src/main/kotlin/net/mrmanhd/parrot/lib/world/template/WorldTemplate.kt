@@ -41,6 +41,7 @@ class WorldTemplate(
             val file = File("parrot/${parrotGroup.getName()}/worlds/$slimeWorldTemplateName")
             slimePlugin.importWorld(file, "${parrotGroup.getName()}-$slimeWorldTemplateName", loader)
         } catch (exception: Exception) {
+            exception.printStackTrace()
             debugMessage("debug.world.template.failed.import", this.slimeWorldTemplateName)
         }
     }

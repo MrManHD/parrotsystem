@@ -15,6 +15,7 @@ class ParrotTemplateGroup(
 
     fun getWorldNames(): List<String> {
         val worldsDirectory = File(this.directoryFile, "worlds")
+        worldsDirectory.mkdirs()
         return worldsDirectory.listFiles()?.map { it.name } ?: listOf()
     }
 
