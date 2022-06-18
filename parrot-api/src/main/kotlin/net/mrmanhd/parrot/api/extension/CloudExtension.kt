@@ -12,3 +12,7 @@ import net.mrmanhd.parrot.api.service.IParrotService
 fun ICloudPlayer.getParrotService(): IParrotService? {
     return ParrotApi.instance.getServiceHandler().getServiceByPlayer(this.getUniqueId())
 }
+
+fun ICloudPlayer.connectToService(parrotService: IParrotService) {
+    parrotService.connectPlayer(this.getUniqueId())
+}
