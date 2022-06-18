@@ -5,6 +5,7 @@ import eu.thesimplecloud.plugin.startup.CloudPlugin
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.daemon.ParrotDaemon
 import net.mrmanhd.parrot.daemon.command.DebugParrotCommand
+import net.mrmanhd.parrot.daemon.command.GotoWorldCommand
 import net.mrmanhd.parrot.daemon.listener.PlayerQuitListener
 import net.mrmanhd.parrot.lib.Parrot
 import net.mrmanhd.parrot.lib.api.service.ParrotService
@@ -21,7 +22,7 @@ import org.bukkit.scheduler.BukkitRunnable
 class SpigotPlugin : JavaPlugin() {
 
     override fun onEnable() {
-        ParrotDaemon()
+        ParrotDaemon(this)
         registerEvents()
 
         object : BukkitRunnable() {
@@ -45,6 +46,7 @@ class SpigotPlugin : JavaPlugin() {
 
         val commandManager = BukkitCommandManager.create(this)
         commandManager.registerCommand(DebugParrotCommand())
+        commandManager.registerCommand(GotoWorldCommand())
     }
 
 }
