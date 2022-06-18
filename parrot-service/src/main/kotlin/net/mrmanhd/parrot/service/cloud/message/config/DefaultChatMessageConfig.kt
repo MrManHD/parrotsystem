@@ -60,9 +60,9 @@ object DefaultChatMessageConfig {
             Pair("debug.world.template.load", "Welttemplate §6{0}§7 wird nun geladen"),
             Pair("debug.world.template.failed.import", "§cWelttemplate {0} ist bereits geladen!"),
             Pair("debug.world.load.template", "SlimeWorld wird von Template §6{0}§7 geladen für §6{1}"),
-            Pair("debug.service.world.load", "Die Welt §6{0}§7 wird für §6{1}§7 geladen"),
-            Pair("debug.service.world.load.success", "Die Welt §6{0}§7 wurde geladen für §6{1}§7 ({2})"),
-            Pair("debug.service.world.unload", "Die Welt §6{0}§7 wird für §6{1}§7 gelöscht")
+            Pair("debug.service.world.load", "Welt §6{0}§7 wird für §6{1}§7 geladen"),
+            Pair("debug.service.world.load.success", "Welt §6{0}§7 wurde geladen für §6{1}§7 ({2})"),
+            Pair("debug.service.world.unload", "Welt §6{0}§7 wird für §6{1}§7 gelöscht")
         )
     }
 
@@ -105,9 +105,9 @@ object DefaultChatMessageConfig {
             Pair("debug.world.template.load", "Worldtemplate §6{0}§7 is now loaded"),
             Pair("debug.world.template.failed.import", "§cWorldtemplate {0} is already loaded!"),
             Pair("debug.world.load.template", "SlimeWorld is loaded from template §6{0}§7 for §6{1}"),
-            Pair("debug.service.world.load", "The world §6{0}§7 is loaded for §6{1}§7"),
-            Pair("debug.service.world.load.success", "The world §6{0}§7 was loaded for §6{1}§7 ({2})"),
-            Pair("debug.service.world.unload", "The world §6{0}§7 is deleted for §6{1}")
+            Pair("debug.service.world.load", "World §6{0}§7 is loaded for §6{1}§7"),
+            Pair("debug.service.world.load.success", "World §6{0}§7 was loaded for §6{1}§7 ({2})"),
+            Pair("debug.service.world.unload", "World §6{0}§7 is deleted for §6{1}")
         )
     }
 
