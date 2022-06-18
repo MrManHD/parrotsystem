@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://i.postimg.cc/v8VzwS4r/parrotsystem-banner.png" alt="Logo">
 </p>
-[![](https://jitpack.io/v/MrManHD/parrotsystem.svg)](https://jitpack.io/#MrManHD/parrotsystem)
+[https://jitpack.io/v/MrManHD/parrotsystem.svg](https://jitpack.io/#MrManHD/parrotsystem)
 
 
 <br />
