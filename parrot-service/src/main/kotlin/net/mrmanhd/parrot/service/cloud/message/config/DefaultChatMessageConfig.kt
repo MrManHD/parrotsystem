@@ -38,6 +38,7 @@ object DefaultChatMessageConfig {
             Pair("service.daemon.ready.use", "Service {0} ist jetzt einsatzbereit"),
             Pair("service.daemon.start.new.service", "[Parrot] ParrotService {0}/{1} wurde gestartet!"),
             Pair("service.daemon.stop.service", "[Parrot] ParrotService {0}/{1} wurde gestoppt!"),
+            Pair("service.world.load.failed.parrotService", "Welt {0} kann in {1} nicht geladen werden! Ist ParrotService null?"),
             Pair("command.setup.create.group.success", "ParrotGroup {0} was created successfully!"),
             Pair("command.reload.groups", "Lade alle ParrotGroups neu!"),
             Pair("command.reload.messages", "Lade alle Nachrichten neu!"),
@@ -58,7 +59,10 @@ object DefaultChatMessageConfig {
             Pair("debug.command.update", "Die Nachrichten wurden aktualisiert"),
             Pair("debug.world.template.load", "Welttemplate §6{0}§7 wird nun geladen"),
             Pair("debug.world.template.failed.import", "§cWelttemplate {0} ist bereits geladen!"),
-            Pair("debug.world.load.template", "SlimeWorld wird von Template §6{0}§7 geladen für §6{1}")
+            Pair("debug.world.load.template", "SlimeWorld wird von Template §6{0}§7 geladen für §6{1}"),
+            Pair("debug.service.world.load", "Die Welt §6{0}§7 wird für §6{1}§7 geladen"),
+            Pair("debug.service.world.load.success", "Die Welt §6{0}§7 wurde geladen für §6{1}§7 ({2})"),
+            Pair("debug.service.world.unload", "Die Welt §6{0}§7 wird für §6{1}§7 gelöscht")
         )
     }
 
@@ -79,6 +83,7 @@ object DefaultChatMessageConfig {
             Pair("service.daemon.ready.use", "Service {0} is now ready to use"),
             Pair("service.daemon.start.new.service", "[Parrot] ParrotService {0}/{1} is started!"),
             Pair("service.daemon.stop.service", "[Parrot] ParrotService {0}/{1} is now offline!"),
+            Pair("service.world.load.failed.parrotService", "Cannot load World {0} in {1}! Is ParrotService null?"),
             Pair("command.setup.create.group.success", "ParrotGroup {0} was created successfully!"),
             Pair("command.reload.groups", "Reloading all ParrotGroups!"),
             Pair("command.reload.messages", "Reloading all messages!"),
@@ -99,7 +104,10 @@ object DefaultChatMessageConfig {
             Pair("debug.command.update", "The news has been updated"),
             Pair("debug.world.template.load", "Worldtemplate §6{0}§7 is now loaded"),
             Pair("debug.world.template.failed.import", "§cWorldtemplate {0} is already loaded!"),
-            Pair("debug.world.load.template", "SlimeWorld is loaded from template §6{0}§7 for §6{1}")
+            Pair("debug.world.load.template", "SlimeWorld is loaded from template §6{0}§7 for §6{1}"),
+            Pair("debug.service.world.load", "The world §6{0}§7 is loaded for §6{1}§7"),
+            Pair("debug.service.world.load.success", "The world §6{0}§7 was loaded for §6{1}§7 ({2})"),
+            Pair("debug.service.world.unload", "The world §6{0}§7 is deleted for §6{1}")
         )
     }
 
