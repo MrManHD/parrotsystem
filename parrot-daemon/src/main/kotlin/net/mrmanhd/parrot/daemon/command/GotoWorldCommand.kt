@@ -2,7 +2,6 @@ package net.mrmanhd.parrot.daemon.command
 
 import dev.triumphteam.cmd.bukkit.annotation.Permission
 import dev.triumphteam.cmd.core.BaseCommand
-import dev.triumphteam.cmd.core.annotation.ArgName
 import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Default
 import net.mrmanhd.parrot.api.extension.getParrotService
