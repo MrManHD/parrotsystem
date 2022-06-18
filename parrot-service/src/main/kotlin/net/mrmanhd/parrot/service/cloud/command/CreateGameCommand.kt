@@ -5,7 +5,6 @@ import eu.thesimplecloud.api.command.ICommandSender
 import eu.thesimplecloud.launcher.console.command.CommandType
 import eu.thesimplecloud.launcher.console.command.ICommandHandler
 import eu.thesimplecloud.launcher.console.command.annotations.*
-import eu.thesimplecloud.launcher.console.command.provider.ServiceCommandSuggestionProvider
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
 import net.mrmanhd.parrot.lib.Parrot
@@ -20,13 +19,13 @@ import net.mrmanhd.parrot.service.cloud.provider.ParrotGroupProvider
  */
 
 @Command("parrot", CommandType.CONSOLE)
-class StartCommand : ICommandHandler {
+class CreateGameCommand : ICommandHandler {
 
     @CommandSubPath("start")
     fun handle(sender: ICommandSender) {
-        sender.sendMessage(">> parrot start <GroupName>")
-        sender.sendMessage(">> parrot start <GroupName> <ServiceName>")
-        sender.sendMessage(">> parrot start <GroupName> <ServiceName> <isPrivate>")
+        sender.sendMessage(">> parrot creategame <GroupName>")
+        sender.sendMessage(">> parrot creategame <GroupName> <ServiceName>")
+        sender.sendMessage(">> parrot creategame <GroupName> <ServiceName> <isPrivate>")
     }
 
     @CommandSubPath("start <groupName>")
