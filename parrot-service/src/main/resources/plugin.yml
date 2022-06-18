@@ -1,6 +1,6 @@
 name: parrotservice
 author: MrManHD
-version: 1.0.1
+version: 0.0.1
 api-version: 1.18
 depend:
   - SimpleCloud-Plugin
