@@ -1,5 +1,7 @@
 package net.mrmanhd.parrot.api.group
 
+import eu.thesimplecloud.api.CloudAPI
+import eu.thesimplecloud.api.servicegroup.ICloudServiceGroup
 import net.mrmanhd.parrot.api.ParrotApi
 import net.mrmanhd.parrot.api.service.IParrotService
 import net.mrmanhd.parrot.api.service.builder.IParrotServiceBuilder
@@ -20,12 +22,21 @@ interface IParrotGroup {
 
     fun getStartingGroupNames(): List<String>
 
+    fun getStartingCloudServiceGroups(): List<ICloudServiceGroup> {
+        val groupManager = CloudAPI.instance.getCloudServiceGroupManager()
+        return getStartingGroupNames().map { groupManager.getServiceGroupByName(it)!! }
+    }
+
     fun isInMaintenance(): Boolean
 
     fun getSpawnLocation(): ParrotLocation
 
     fun getAllServices(): List<IParrotService> {
         return ParrotApi.instance.getServiceHandler().getAllServicesByGroup(this)
+    }
+
+    fun shutdownAllServices() {
+        getAllServices().forEach { it.stop() }
     }
 
     fun getOnlinePlayersCount(): Int {
