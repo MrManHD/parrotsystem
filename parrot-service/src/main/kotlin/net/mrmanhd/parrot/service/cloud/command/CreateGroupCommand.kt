@@ -29,7 +29,7 @@ class CreateGroupCommand : ICommandHandler {
         @CommandArgument("minimumOnlineServiceCount") minimumOnlineServiceCount: Int
     ) {
         val spawnLocation = ParrotLocation("world", 0.0, 100.0, 0.0, 0F, 0F)
-        val group = Group(groupName, listOf(), minimumOnlineServiceCount, listOf(), false, spawnLocation)
+        val group = Group(groupName, listOf(), minimumOnlineServiceCount, false, spawnLocation)
         CloudModule.instance.groupHandler.addGroup(group)
 
         sender.sendChatMessage("command.setup.create.group.success", groupName)

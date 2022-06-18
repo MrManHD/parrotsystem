@@ -13,7 +13,6 @@ class Group(
     val groupName: String,
     val preLoadedWorlds: List<String>,
     val minimumOnlineServiceCount: Int,
-    val startingGroupNames: List<String>,
     val maintenance: Boolean,
     val spawnLocation: ParrotLocation
 ) : Nameable {
@@ -25,7 +24,6 @@ class Group(
             this.groupName,
             this.preLoadedWorlds,
             this.minimumOnlineServiceCount,
-            this.startingGroupNames,
             this.maintenance,
             this.spawnLocation
         )

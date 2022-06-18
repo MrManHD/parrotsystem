@@ -20,13 +20,6 @@ interface IParrotGroup {
 
     fun getMinimumOnlineServiceCount(): Int
 
-    fun getStartingGroupNames(): List<String>
-
-    fun getStartingCloudServiceGroups(): List<ICloudServiceGroup> {
-        val groupManager = CloudAPI.instance.getCloudServiceGroupManager()
-        return getStartingGroupNames().map { groupManager.getServiceGroupByName(it)!! }
-    }
-
     fun isInMaintenance(): Boolean
 
     fun getSpawnLocation(): ParrotLocation

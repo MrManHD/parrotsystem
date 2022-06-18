@@ -14,7 +14,6 @@ class ParrotGroupInfo(
     val name: String,
     val preLoadedWorlds: List<String>,
     val minimumOnlineServiceCount: Int,
-    val startingGroupNames: List<String>,
     val maintenance: Boolean,
     val spawnLocation: ParrotLocation
 ) : Serializable {
@@ -24,7 +23,6 @@ class ParrotGroupInfo(
             this.name,
             this.preLoadedWorlds,
             this.minimumOnlineServiceCount,
-            this.startingGroupNames,
             this.maintenance,
             this.spawnLocation
         )

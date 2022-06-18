@@ -50,13 +50,9 @@ class RestartCommand : ICommandHandler {
         Parrot.instance.configRepository.getConfig()
             .getStartGroups().forEach { it.shutdownAllServices() }
 
-        val propertyHolder = CloudAPI.instance.getGlobalPropertyHolder()
-        ParrotApi.instance.getGroupHandler().getAllGroups()
-            .map { it.getStartingCloudServiceGroups() }
-            .flatten()
-            .forEach { it.shutdownAllServices() }
-
         sender.sendChatMessage("command.restart.success")
+
+        val propertyHolder = CloudAPI.instance.getGlobalPropertyHolder()
         propertyHolder.removeProperty("parrot-disable-starting")
     }
 

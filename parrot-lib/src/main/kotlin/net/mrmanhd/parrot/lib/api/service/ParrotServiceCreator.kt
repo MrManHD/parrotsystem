@@ -96,16 +96,7 @@ class ParrotServiceCreator(
 
     private fun getCloudServiceGroup(): ICloudServiceGroup {
         this.builder.cloudServiceGroup?.let { return it }
-        val randomServiceGroup = Parrot.instance.configRepository.getConfig().getStartGroups().random()
-        return getParrotGroupStartingGroup() ?: randomServiceGroup
-    }
-
-    private fun getParrotGroupStartingGroup(): ICloudServiceGroup? {
-        val startingGroupNames = this.builder.parrotGroup.getStartingCloudServiceGroups()
-        if (startingGroupNames.isEmpty()) {
-            return null
-        }
-        return startingGroupNames.random()
+        return Parrot.instance.configRepository.getConfig().getStartGroups().random()
     }
 
 }
